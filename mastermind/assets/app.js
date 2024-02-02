@@ -34,9 +34,6 @@ const feedbackBoard = [
     [null, null, null, null]
 ];
 
-const solutionArr = [
-    null, null, null, null
-]
 
 const guessCol = document.querySelector('#board-wrapper');
 const guessEls = [...guessCol.children];
@@ -54,3 +51,21 @@ let winner;
 let feedback;
 
 
+function render() {
+    renderGuess();
+    renderFeedback();
+    renderSolution();
+    renderMessage();
+};
+
+function renderSolution() {
+    Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
+};
+
+function runGame() {};
+
+
+function makeGuess(evt) {};
+
+
+function
