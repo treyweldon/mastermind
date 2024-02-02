@@ -9,15 +9,14 @@ body {
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 5fr 1fr;
   align-items: center;
-  justify-content: center;
   background-color: gray;
   }
   
 h1 {
   margin-bottom: 25px;
-  justify-content: center;
-  align-items: center;
-  grid-column-start: 2;
+  /* grid-column-start: 2; */
+  text-align: center;
+  grid-column: span 2 / 4;
 }
 
 h2 {
@@ -45,7 +44,7 @@ grid-row: 2;
 #guess-wrapper {
     display: flex;
     flex-direction: column;
-    width: 79%;
+    width:80%;
     background-color: lightblue;
   }
 
@@ -98,7 +97,7 @@ grid-row: 2;
     justify-content: space-evenly;
     align-items: center;
     height: 5vh;
-    width: 25vw;
+    width: 23vw;
     margin: 5px;
     background-color: lightcyan;
     grid-column: 2;
@@ -109,7 +108,7 @@ grid-row: 2;
     height: 90%;
     width: 20%;
     border-radius: 50%;
-    background-color: white;
+    background-color: black;
 }
 
 button {
@@ -118,5 +117,12 @@ button {
     font-size: 18px;
     padding: 5px;
     background-color: lightsteelblue;
-    grid-column: span 2;
+}
+
+#check {
+  grid-column-start: 2;
+}
+
+#reset {
+  grid-column-start: 3;
 }
