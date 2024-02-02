@@ -1,22 +1,56 @@
 const colorLookup = {
-    '0': 'white'
-    '1': 'red'
-    '2': 'blue'
-    '3': 'yellow'
-    '4': 'orange'
-    '5': 'green'
+    '0': 'white',
+    '1': 'red',
+    '2': 'blue',
+    '3': 'yellow',
+    '4': 'orange',
+    '5': 'green',
     '6': 'purple'
 };
 
-const gameBoardEl = document.querySelector('#board-wrapper');
-const feedbackEl = document.querySelector('#feedback-wrapper');
+const gameBoard = [
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null]
+];
+
+const feedbackBoard = [
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null]
+];
+
+const solutionArr = [
+    null, null, null, null
+]
+
+const guessCol = document.querySelector('#board-wrapper');
+const guessEls = [...guessCol.children];
+const guessCells = [...guessEls.children];
+const feedbackCol = document.querySelector('#feedback-wrapper');
+const feedbackEl = [...feedbackCol.querySelector.children];
+const feedbackCells = [...feedbackEl.querySelector.children];
 const checkGuessBtn = document.querySelector('#check');
 const resetBtn = document.querySelector('#reset');
-const turnsEl = document.querySelector('h2');
-const messageEl = document.querySelector('h3')
+const messageEl = document.querySelector('h2');
 
 
-let board;
 let turn;
 let winner;
 let feedback;
+
+
