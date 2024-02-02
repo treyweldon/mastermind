@@ -5,16 +5,33 @@
   }
   
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: gray;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 5fr 1fr;
+  align-items: center;
+  justify-content: center;
+  background-color: gray;
   }
   
 h1 {
-    margin-bottom: 25px;
-  }
-  
+  margin-bottom: 25px;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 2;
+}
+
+h2 {
+  margin: 15px;
+  grid-column: 2;
+  grid-column: span 2;
+}
+
+p {
+margin-top: 15px;
+grid-column: 3;
+grid-row: 2;
+}
+
 #board-wrapper {
     width: 30vw;
     height: 50vw;
@@ -22,6 +39,7 @@ h1 {
     border: solid 5px black;
     background-color: lightsalmon;
     justify-content: space-between;
+    grid-column: 2;
   }
 
 #guess-wrapper {
@@ -83,6 +101,7 @@ h1 {
     width: 25vw;
     margin: 5px;
     background-color: lightcyan;
+    grid-column: 2;
   }
 
 .solution-cell {
@@ -93,14 +112,11 @@ h1 {
     background-color: white;
 }
 
-p {
-    margin: 5px;
-}
-
 button {
     margin: 5px;
     border-radius: 15%;
     font-size: 18px;
     padding: 5px;
     background-color: lightsteelblue;
+    grid-column: span 2;
 }
