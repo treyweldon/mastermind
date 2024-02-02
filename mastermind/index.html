@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./assets/app.js"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mastermind</h1>
+    <div id="board-wrapper">
+        <div id="guess-wrapper">
+            <div class="guess" data-num="0">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="1">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="2">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="3">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="4">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="5">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="6">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="7">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="8">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+            <div class="guess" data-num="9">
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+                <div class="guess-cell"></div>
+            </div>
+        </div>
+        <div id="feedback-wrapper">
+            <div class="feedback" data-num="0">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="1">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="2">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="3">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="4">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="5">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="6">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="7">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="8">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="feedback" data-num="9">
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+                <div class="feedback-cell"></div>
+            </div>
+            <div class="empty"></div>
+        </div>
+    </div>
+    <div class="solution">
+        <div class="solution-cell"></div>
+        <div class="solution-cell"></div>
+        <div class="solution-cell"></div>
+        <div class="solution-cell"></div>
+    </div>
+    <h2>10 Guesses remaining</h2>
+    <button id="check">Check Guess</button>
+    <button id="reset">Reset Game</button>
+    <p id="instructions">Instructions...</p>
+</body>
+</html>
