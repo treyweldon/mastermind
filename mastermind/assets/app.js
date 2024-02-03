@@ -38,11 +38,11 @@ const solutionArr = [];
 
 
 const guessCol = document.querySelector('#guess-wrapper');
-const guessEls = [...guessCol.children];
-const guessCells = [...guessEls.children];
+const guessEls = document.getElementsByClassName('guess');
+const guessCells = document.getElementsByClassName('guess-cell')
 const feedbackCol = document.querySelector('#feedback-wrapper');
-const feedbackEl = [...feedbackCol.querySelector.children];
-const feedbackCells = [...feedbackEl.querySelector.children];
+const feedbackEl = document.getElementsByClassName('feedback')
+const feedbackCells = document.getElementsByClassName('feedback-cell');
 const solutionEl = document.querySelector('#solution')
 const solutionCells = [...solutionEl.children]
 const checkGuessBtn = document.getElementById('#check');
@@ -54,6 +54,15 @@ let turn;
 let winner;
 
 
+guessCol.addEventListener("click", function(e) {
+    console.dir(e.target);
+    if (e.target.className !== 'guess-cell') return;
+});
+
+function addGuess(guessNum){
+
+};
+
 // function render() {
 //     renderGuess();
 //     renderFeedback();
@@ -61,18 +70,22 @@ let winner;
 //     renderMessage();
 // };
 
-initialize();
+// initialize();
 
-function initialize(){
-    turn = 1;
-    winner = null;
-    renderSolution();
-}
+// function initialize(){
+//     turn = 1;
+//     winner = null;
+//     renderSolution();
+// }
 
-resetBtn.addEventListener("click", newGame);
-checkGuessBtn.addEventListener("click", checkWin);
-selectGuess.addEventListener("click", addColor[idx]);
+// resetBtn.addEventListener("click", newGame);
+// checkGuessBtn.addEventListener("click", checkWin);
 
+
+
+// function addColor(guessCells, idx) {
+
+// }
 
 // function newGame(){};
 
@@ -113,6 +126,6 @@ selectGuess.addEventListener("click", addColor[idx]);
 // function addFeedback() {};
 
 
-function renderSolution() {
-    const solutionArr =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
- };
+// function renderSolution() {
+//     const solutionArr =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
+//  }
