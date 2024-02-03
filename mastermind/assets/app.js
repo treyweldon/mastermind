@@ -68,4 +68,12 @@ function runGame() {};
 function makeGuess(evt) {};
 
 
-function
+function renderGuess() {};
+
+
+function renderMessage() {};
+
+
+function addFeedback() {};
+
+
