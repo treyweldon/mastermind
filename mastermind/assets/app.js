@@ -34,6 +34,8 @@ const feedbackBoard = [
     [null, null, null, null]
 ];
 
+const guessArray = feedbackBoard(arr[0])
+
 
 const guessCol = document.querySelector('#board-wrapper');
 const guessEls = [...guessCol.children];
@@ -62,10 +64,25 @@ function renderSolution() {
     Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
 };
 
+resetBtn.addEventListener("click", function(evt){});
+checkGuessBtn.addEventListener("click", function(evt){});
+selectGuess.addEventListener("click", function(evt){
+    gameBoard.forEach
+});
+
+
+
+
 function runGame() {};
 
 
-function makeGuess(evt) {};
+function selectGuess(evt) {
+    console.dir(evt.target);
+    if (evt.target.className !== "guess-cell") return;
+};
+
+
+function makeGuess() {};
 
 
 function renderGuess() {};
@@ -75,5 +92,10 @@ function renderMessage() {};
 
 
 function addFeedback() {};
+
+
+function checkWin() {
+    if ()
+};
 
 
