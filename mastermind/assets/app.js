@@ -34,68 +34,85 @@ const feedbackBoard = [
     [null, null, null, null]
 ];
 
-const guessArray = feedbackBoard(arr[0])
+const solutionArr = [];
 
 
-const guessCol = document.querySelector('#board-wrapper');
+const guessCol = document.querySelector('#guess-wrapper');
 const guessEls = [...guessCol.children];
 const guessCells = [...guessEls.children];
 const feedbackCol = document.querySelector('#feedback-wrapper');
 const feedbackEl = [...feedbackCol.querySelector.children];
 const feedbackCells = [...feedbackEl.querySelector.children];
-const checkGuessBtn = document.querySelector('#check');
-const resetBtn = document.querySelector('#reset');
+const solutionEl = document.querySelector('#solution')
+const solutionCells = [...solutionEl.children]
+const checkGuessBtn = document.getElementById('#check');
+const resetBtn = document.getElementById('#reset');
 const messageEl = document.querySelector('h2');
 
 
 let turn;
 let winner;
-let feedback;
 
 
-function render() {
-    renderGuess();
-    renderFeedback();
+// function render() {
+//     renderGuess();
+//     renderFeedback();
+//     renderSolution();
+//     renderMessage();
+// };
+
+initialize();
+
+function initialize(){
+    turn = 1;
+    winner = null;
     renderSolution();
-    renderMessage();
-};
+}
+
+resetBtn.addEventListener("click", newGame);
+checkGuessBtn.addEventListener("click", checkWin);
+selectGuess.addEventListener("click", addColor[idx]);
+
+
+// function newGame(){};
+
+// function checkWin([]) {
+//     if (checkWin === solution){
+//         return winner;}
+//     else {
+//         addFeedback();
+
+//     };
+// };
+
+
+// function addColor(evt) {
+//     console.dir(evt.target);
+//     if (evt.target.className !== "guess-cell") return;
+
+//     else (let countClicks = 0) {
+//         guessCells.forEach(function(idx));
+//         countClicks++;
+//         guessCells.style.backgroundColor = colorLookup[idx];
+//     }
+
+// };
+
+
+// function makeGuess() {};
+
+
+// function renderGuess(guessNum) {
+//     const guessRow = gameBoard[guessNum]
+// };
+
+
+// function renderMessage() {};
+
+
+// function addFeedback() {};
+
 
 function renderSolution() {
-    Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
-};
-
-resetBtn.addEventListener("click", function(evt){});
-checkGuessBtn.addEventListener("click", function(evt){});
-selectGuess.addEventListener("click", function(evt){
-    gameBoard.forEach
-});
-
-
-
-
-function runGame() {};
-
-
-function selectGuess(evt) {
-    console.dir(evt.target);
-    if (evt.target.className !== "guess-cell") return;
-};
-
-
-function makeGuess() {};
-
-
-function renderGuess() {};
-
-
-function renderMessage() {};
-
-
-function addFeedback() {};
-
-
-function checkWin() {
-    if ()
-};
-
-
+    const solutionArr =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
+ };
