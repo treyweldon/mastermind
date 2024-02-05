@@ -26,9 +26,7 @@ h2 {
 
 p {
 margin-top: 15px;
-grid-column: 3;
-grid-row: 2;
-text-align: justify;
+
 }
 
 #board-wrapper {
@@ -109,6 +107,46 @@ text-align: justify;
     width: 20%;
     border-radius: 50%;
     background-color: black;
+}
+
+#color-bank {
+  grid-column: 3;
+  grid-row: 2;
+  width: 30vw;
+  height: 45vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.colors {
+  border: solid 1px black;
+  border-radius: 15%;
+  width: 15vw;
+  height: 15vh;
+}
+
+#red {
+  background-color: red;
+}
+
+#blue {
+  background-color: blue;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#green {
+  background-color: green;
+}
+
+#orange {
+  background-color: orange;
+}
+
+#purple {
+  background-color: purple;
 }
 
 button {

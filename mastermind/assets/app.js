@@ -40,6 +40,7 @@ const solutionArr = [];
 const guessCol = document.querySelector('#guess-wrapper');
 const guessEls = document.getElementsByClassName('guess');
 const guessCells = document.getElementsByClassName('guess-cell')
+const colorGrid = document.getElementById('#color-bank');
 const feedbackCol = document.querySelector('#feedback-wrapper');
 const feedbackEl = document.getElementsByClassName('feedback')
 const feedbackCells = document.getElementsByClassName('feedback-cell');
