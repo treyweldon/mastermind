@@ -38,9 +38,7 @@ const solutionArr = [];
 
 
 const guessCol = document.querySelector('#guess-wrapper');
-const guessEls = document.getElementsByClassName('.guess');
-const guessCells = document.getElementsByClassName('.guess-cell')
-const colorGrid = document.getElementById('#color-bank');
+
 const colorRed = document.querySelector('#red')
 const colorBlue = document.querySelector('#blue')
 const colorYellow = document.querySelector('#yellow')
@@ -48,16 +46,14 @@ const colorGreen = document.querySelector('#green')
 const colorOrange = document.querySelector('#orange')
 const colorPurple = document.querySelector('#purple')
 const feedbackCol = document.querySelector('#feedback-wrapper');
-const feedbackEl = document.getElementsByClassName('.feedback')
-const feedbackCells = document.getElementsByClassName('.feedback-cell');
+const feedbackEl = document.querySelectorAll('.feedback')
+const feedbackCells = document.querySelectorAll('.feedback-cell');
 const solutionEl = document.querySelector('#solution')
 const solutionCells = [...solutionEl.children]
 const checkGuessBtn = document.querySelector('#check');
 const resetBtn = document.querySelector('#reset');
 const messageEl = document.querySelector('h2');
 
-
-let winner;
 
 
 guessCol.addEventListener("click", function(e) {
