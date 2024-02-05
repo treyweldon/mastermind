@@ -38,31 +38,36 @@ const solutionArr = [];
 
 
 const guessCol = document.querySelector('#guess-wrapper');
-const guessEls = document.getElementsByClassName('guess');
-const guessCells = document.getElementsByClassName('guess-cell')
+const guessEls = document.getElementsByClassName('.guess');
+const guessCells = document.getElementsByClassName('.guess-cell')
 const colorGrid = document.getElementById('#color-bank');
+const colorBox = document.getElementsByClassName('.colors')
 const feedbackCol = document.querySelector('#feedback-wrapper');
-const feedbackEl = document.getElementsByClassName('feedback')
-const feedbackCells = document.getElementsByClassName('feedback-cell');
+const feedbackEl = document.getElementsByClassName('.feedback')
+const feedbackCells = document.getElementsByClassName('.feedback-cell');
 const solutionEl = document.querySelector('#solution')
 const solutionCells = [...solutionEl.children]
-const checkGuessBtn = document.getElementById('#check');
-const resetBtn = document.getElementById('#reset');
+const checkGuessBtn = document.querySelector('#check');
+const resetBtn = document.querySelector('#reset');
 const messageEl = document.querySelector('h2');
 
 
-let turn;
 let winner;
 
 
 guessCol.addEventListener("click", function(e) {
     console.dir(e.target);
     if (e.target.className !== 'guess-cell') return;
+    else (console.log("guess"))
 });
 
-function addGuess(guessNum){
+resetBtn.addEventListener("click", function(e){
+    console.dir(e.target);
+});
 
-};
+checkGuessBtn.addEventListener("click", function(e){
+    console.dir(e.target);
+});
 
 // function render() {
 //     renderGuess();
@@ -79,14 +84,10 @@ function addGuess(guessNum){
 //     renderSolution();
 // }
 
-// resetBtn.addEventListener("click", newGame);
-// checkGuessBtn.addEventListener("click", checkWin);
 
 
 
-// function addColor(guessCells, idx) {
 
-// }
 
 // function newGame(){};
 
@@ -111,21 +112,6 @@ function addGuess(guessNum){
 //     }
 
 // };
-
-
-// function makeGuess() {};
-
-
-// function renderGuess(guessNum) {
-//     const guessRow = gameBoard[guessNum]
-// };
-
-
-// function renderMessage() {};
-
-
-// function addFeedback() {};
-
 
 // function renderSolution() {
 //     const solutionArr =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
