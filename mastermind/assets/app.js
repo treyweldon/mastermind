@@ -1,12 +1,12 @@
-const colorLookup = {
-    '0': 'white',
-    '1': 'red',
-    '2': 'blue',
-    '3': 'yellow',
-    '4': 'orange',
-    '5': 'green',
-    '6': 'purple'
-};
+// const colorLookup = {
+//     '0': 'white',
+//     '1': 'red',
+//     '2': 'blue',
+//     '3': 'yellow',
+//     '4': 'orange',
+//     '5': 'green',
+//     '6': 'purple'
+// };
 
 const gameBoard = [
     [null, null, null, null],
@@ -41,7 +41,12 @@ const guessCol = document.querySelector('#guess-wrapper');
 const guessEls = document.getElementsByClassName('.guess');
 const guessCells = document.getElementsByClassName('.guess-cell')
 const colorGrid = document.getElementById('#color-bank');
-const colorBox = document.getElementsByClassName('.colors')
+const colorRed = document.querySelector('#red')
+const colorBlue = document.querySelector('#blue')
+const colorYellow = document.querySelector('#yellow')
+const colorGreen = document.querySelector('#green')
+const colorOrange = document.querySelector('#orange')
+const colorPurple = document.querySelector('#purple')
 const feedbackCol = document.querySelector('#feedback-wrapper');
 const feedbackEl = document.getElementsByClassName('.feedback')
 const feedbackCells = document.getElementsByClassName('.feedback-cell');
@@ -68,6 +73,30 @@ resetBtn.addEventListener("click", function(e){
 checkGuessBtn.addEventListener("click", function(e){
     console.dir(e.target);
 });
+
+colorRed.addEventListener("click", function(e){
+    console.dir(e.target)
+})
+
+colorBlue.addEventListener("click", function(e){
+    console.dir(e.target)
+})
+
+colorYellow.addEventListener("click", function(e){
+    console.dir(e.target)
+})
+
+colorGreen.addEventListener("click", function(e){
+    console.dir(e.target)
+})
+
+colorOrange.addEventListener("click", function(e){
+    console.dir(e.target)
+})
+
+colorPurple.addEventListener("click", function(e){
+    console.dir(e.target)
+})
 
 // function render() {
 //     renderGuess();
