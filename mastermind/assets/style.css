@@ -1,27 +1,27 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
-  align-items: center;
-  background-color: gray;
-  }
-  
+display: grid;
+grid-template-columns: 1fr 2fr 2fr 1fr;
+grid-template-rows: 1fr 5fr 1fr;
+align-items: center;
+background-color: gray;
+}
+
 h1 {
-  margin-bottom: 25px;
-  text-align: center;
-  grid-column: span 2 / 4;
+margin-bottom: 25px;
+text-align: center;
+grid-column: span 2 / 4;
 }
 
 h2 {
-  margin: 15px;
-  grid-column: 2;
-  grid-column: span 2;
+margin: 15px;
+grid-column: 2;
+grid-column: span 2;
 }
 
 p {
@@ -30,137 +30,137 @@ margin-top: 25px;
 }
 
 #board-wrapper {
-    width: 30vw;
-    height: 50vw;
-    display: flex;
-    border: solid 5px black;
-    background-color: lightsalmon;
-    justify-content: space-between;
-    grid-column: 2;
-  }
+  width: 30vw;
+  height: 50vw;
+  display: flex;
+  border: solid 5px black;
+  background-color: lightsalmon;
+  justify-content: space-between;
+  grid-column: 2;
+}
 
 #guess-wrapper {
-    display: flex;
-    flex-direction: column;
-    width:80%;
-    background-color: lightblue;
-  }
+  display: flex;
+  flex-direction: column;
+  width:80%;
+  background-color: lightblue;
+}
 
 .guess {
-    display: flex;
-    flex-direction: row;
-    background-color: antiquewhite;
-    border: solid 1px black;
-    width: 100%;
-    height: 10%;
-    justify-content: space-evenly;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: row;
+  background-color: antiquewhite;
+  border: solid 1px black;
+  width: 100%;
+  height: 10%;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 .guess-cell {
-    width: 20%;
-    height: 90%;
-    border: solid 1px black;
-    border-radius: 50%;
-    background-color: white;
-  }
+  width: 20%;
+  height: 90%;
+  border: solid 1px black;
+  border-radius: 50%;
+  background-color: white;
+}
 
 #feedback-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 19%;
-    background-color: steelblue;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 19%;
+  background-color: steelblue;
+}
 
 .feedback {
-    display: flex;
-    flex-wrap: wrap;
-    border: solid 1px black;
-    height: 10%;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 1px black;
+  height: 10%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .feedback-cell {
-    border: solid 1px black;
-    width: 45%;
-    height: 45%;
-    border-radius: 50%;
-    background-color: gray;
+  border: solid 1px black;
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  background-color: gray;
 }
 
 #solution {
-    border: solid 2px black;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 5vh;
-    width: 23vw;
-    margin: 5px;
-    background-color: lightcyan;
-    grid-column: 2;
-  }
+  border: solid 2px black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5vh;
+  width: 23vw;
+  margin: 5px;
+  background-color: lightcyan;
+  grid-column: 2;
+}
 
 .solution-cell {
-    border: solid 1px black;
-    height: 90%;
-    width: 20%;
-    border-radius: 50%;
-    background-color: black;
+  border: solid 1px black;
+  height: 90%;
+  width: 20%;
+  border-radius: 50%;
+  background-color: black;
 }
 
 #color-bank {
-  grid-column: 3;
-  grid-row: 2;
-  width: 30vw;
-  height: 45vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+grid-column: 3;
+grid-row: 2;
+width: 30vw;
+height: 45vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
 }
 
 .colors {
-  border: solid 1px black;
-  border-radius: 15%;
-  width: 15vw;
-  height: 15vh;
+border: solid 1px black;
+border-radius: 15%;
+width: 15vw;
+height: 15vh;
 }
 
 #red {
-  background-color: red;
+background-color: red;
 }
 
 #blue {
-  background-color: blue;
+background-color: blue;
 }
 
 #yellow {
-  background-color: yellow;
+background-color: yellow;
 }
 
 #green {
-  background-color: green;
+background-color: green;
 }
 
 #orange {
-  background-color: orange;
+background-color: orange;
 }
 
 #purple {
-  background-color: purple;
+background-color: purple;
 }
 
 button {
-    margin: 5px;
-    border-radius: 15%;
-    font-size: 18px;
-    padding: 5px;
-    background-color: lightsteelblue;
+  margin: 5px;
+  border-radius: 15%;
+  font-size: 18px;
+  padding: 5px;
+  background-color: lightsteelblue;
 }
 
 #check {
-  grid-column-start: 2;
+grid-column-start: 2;
 }
 
 #reset {
-  grid-column-start: 3;
+grid-column-start: 3;
 }

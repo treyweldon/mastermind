@@ -9,6 +9,13 @@ const colorLookup = {
 };
 
 
+const solutionArr = [];
+
+let winner;
+let ansNum = 0;
+let guessNum = 0;
+
+
 const colorRed = document.querySelector('#red');
 const colorBlue = document.querySelector('#blue');
 const colorYellow = document.querySelector('#yellow');
@@ -20,28 +27,29 @@ const checkGuessBtn = document.querySelector('#check');
 const resetBtn = document.querySelector('#reset');
 const messageEl = document.querySelector('h2');
 
+const [...guessCells] = document.querySelectorAll(".guess > div");
 
-const [...guess0] = document.querySelectorAll("#sq-0, #sq-1, #sq-2, #sq-3");
-const [...guess1] = document.querySelectorAll("#sq-4, #sq-5, #sq-6, #sq-7");
-const [...guess2] = document.querySelectorAll("#sq-8, #sq-9, #sq-10, #sq-11");
-const [...guess3] = document.querySelectorAll("#sq-12, #sq-13, #sq-14, #sq-15");
-const [...guess4] = document.querySelectorAll("#sq-16, #sq-17, #sq-18, #sq-19");
-const [...guess5] = document.querySelectorAll("#sq-20, #sq-21, #sq-22, #sq-23");
-const [...guess6] = document.querySelectorAll("#sq-24, #sq-25, #sq-26, #sq-27");
-const [...guess7] = document.querySelectorAll("#sq-28, #sq-29, #sq-30, #sq-31");
-const [...guess8] = document.querySelectorAll("#sq-32, #sq-33, #sq-34, #sq-35");
-const [...guess9] = document.querySelectorAll("#sq-36, #sq-37, #sq-38, #sq-39");
+const [...guess0] = document.querySelectorAll("#guess-0 > div");
+const [...guess1] = document.querySelectorAll("#guess-1 > div");
+const [...guess2] = document.querySelectorAll("#guess-2 > div");
+const [...guess3] = document.querySelectorAll("#guess-3 > div");
+const [...guess4] = document.querySelectorAll("#guess-4 > div");
+const [...guess5] = document.querySelectorAll("#guess-5 > div");
+const [...guess6] = document.querySelectorAll("#guess-6 > div");
+const [...guess7] = document.querySelectorAll("#guess-7 > div");
+const [...guess8] = document.querySelectorAll("#guess-8 > div");
+const [...guess9] = document.querySelectorAll("#guess-9 > div");
 
-const [...feedback0] = document.querySelectorAll("#fb-0, #fb-1, #fb-2, #fb-3");
-const [...feedback1] = document.querySelectorAll("#fb-4, #fb-5, #fb-6, #fb-3");
-const [...feedback2] = document.querySelectorAll("#fb-8, #fb-9, #fb-10, #fb-3");
-const [...feedback3] = document.querySelectorAll("#fb-12, #fb-13, #fb-14, #fb-15");
-const [...feedback4] = document.querySelectorAll("#fb-16, #fb-17, #fb-18, #fb-19");
-const [...feedback5] = document.querySelectorAll("#fb-20, #fb-21, #fb-22, #fb-23");
-const [...feedback6] = document.querySelectorAll("#fb-24, #fb-25, #fb-26, #fb-27");
-const [...feedback7] = document.querySelectorAll("#fb-28, #fb-29, #fb-30, #fb-31");
-const [...feedback8] = document.querySelectorAll("#fb-32, #fb-33, #fb-34, #fb-35");
-const [...feedback9] = document.querySelectorAll("#fb-36, #fb-37, #fb-38, #fb-39");
+const [...feedback0] = document.querySelectorAll("#feedback-0 > div");
+const [...feedback1] = document.querySelectorAll("#feedback-1 > div");
+const [...feedback2] = document.querySelectorAll("#feedback-2 > div");
+const [...feedback3] = document.querySelectorAll("#feedback-3 > div");
+const [...feedback4] = document.querySelectorAll("#feedback-4 > div");
+const [...feedback5] = document.querySelectorAll("#feedback-5 > div");
+const [...feedback6] = document.querySelectorAll("#feedback-6 > div");
+const [...feedback7] = document.querySelectorAll("#feedback-7 > div");
+const [...feedback8] = document.querySelectorAll("#feedback-8 > div");
+const [...feedback9] = document.querySelectorAll("#feedback-9 > div");
 
 
 const gameBoard = [
@@ -70,12 +78,6 @@ const gameBoard = [
      feedback9
   ];
   
-  const solutionArr = [];
-
-  let winner;
-  let guessNum = 0;
-  
-
 
 
 resetBtn.addEventListener("click", function(e){
@@ -86,29 +88,39 @@ checkGuessBtn.addEventListener("click", function(e){
     console.dir(e.target);
 });
 
-colorRed.addEventListener("click", function(e){
-    console.dir(e.target)
-})
+colorRed.addEventListener("click", runGame)
+colorBlue.addEventListener("click", runGame)
+colorYellow.addEventListener("click", runGame)
+colorGreen.addEventListener("click", runGame)
+colorOrange.addEventListener("click", runGame)
+colorPurple.addEventListener("click", runGame)
 
-colorBlue.addEventListener("click", function(e){
-    console.dir(e.target)
-})
 
-colorYellow.addEventListener("click", function(e){
-    console.dir(e.target)
-})
 
-colorGreen.addEventListener("click", function(e){
-    console.dir(e.target)
-})
+function runGame(e) {
+    if (e.target.className === 'colors') {
+      gameBoard[guessNum][ansNum].style.background =
+        e.target.style.background;
+      ansNum++;
+      const guess = gameBoard[guessNum]
+      console.log(ansNum)
+    }
+    if (ansNum === 4) {
+        ansNum = 0;
+        guessNum++;
+        console.log("..." + guessNum)
+  }
+};  
+  
 
-colorOrange.addEventListener("click", function(e){
-    console.dir(e.target)
+function render(){
+    guessCells.forEach(function(guess, guessNum){
+        const rowArr = [...guess.children];
+        rowArr.forEach(function (guessCell, ansNum){
+            const color = gameBoard[ansNum][guessNum] === e.target.backgroundColor
+        })
 })
-
-colorPurple.addEventListener("click", function(e){
-    console.dir(e.target)
-})
+}
 
 // function render() {
 //     renderGuess();
@@ -154,6 +166,9 @@ colorPurple.addEventListener("click", function(e){
 
 // };
 
-// function renderSolution() {
-//     const solutionArr =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1)
-//  }
+function renderSolution() {
+    const newSolution =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1);
+    solutionArr = newSolution;
+    return solutionArr;
+ }
+
