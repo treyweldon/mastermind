@@ -1,15 +1,15 @@
-const colorLookup = {
-    '0': 'white',
-    '1': 'red',
-    '2': 'blue',
-    '3': 'yellow',
-    '4': 'green',
-    '5': 'orange',
-    '6': 'purple'
-};
+const colorLookup = [
+    "white",
+    "red",
+    "blue",
+    "yellow",
+    "green",
+    "orange",
+    "purple"
+]
 
 
-const solutionArr = [];
+let solutionArr = [1, 2, 3, 4];
 
 let winner;
 let ansNum = 0;
@@ -66,26 +66,39 @@ const gameBoard = [
     guess8,
     guess9
   ];
+
+let gameArr = [
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null]
+]
   
-  const feedbackBoard = [
-     feedback0,
-     feedback1,
-     feedback2,
-     feedback3,
-     feedback4,
-     feedback5,
-     feedback6,
-     feedback7,
-     feedback8,
-     feedback9
-  ];
-  
+const feedbackBoard = [
+    feedback0,
+    feedback1,
+    feedback2,
+    feedback3,
+    feedback4,
+    feedback5,
+    feedback6,
+    feedback7,
+    feedback8,
+    feedback9
+];
+
+const solutionBoard = [
+    solution
+];
 
 
-resetBtn.addEventListener("click", function(e){
-    console.dir(e.target);
-});
-
+resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
 
 colorRed.addEventListener("click", addColor)
@@ -96,13 +109,16 @@ colorOrange.addEventListener("click", addColor)
 colorPurple.addEventListener("click", addColor)
 
 
+function resetGame(){
+};
+
 
 function addColor(e) {
     if (e.target.className === 'colors') {
       gameBoard[guessNum][ansNum].style.background =
         e.target.id;
+        gameArr[guessNum][ansNum] = e.target.id;
       ansNum++;
-      const guess = gameBoard[guessNum]
     }
     if (ansNum === 4) {
         ansNum = 0;
@@ -111,68 +127,42 @@ function addColor(e) {
 };  
   
 
-function render(){
-    guessCells.forEach(function(guess, guessNum){
-        const rowArr = [...guess.children];
-        rowArr.forEach(function (guessCell, ansNum){
-            const color = gameBoard[ansNum][guessNum] === e.target.backgroundColor
-        })
-})
-}
 
 function checkGuess(){
-    if (gameBoard[guessNum] === solutionArr)
-    return (winner === true);
+    if (gameArr[guessNum] === solutionArr)
+    return (winner === true)
     else (guessNum++)
     ansNum = 0;
+    // verifyGuess();
+    // addFeedback();
+
 };
 
-// function render() {
-//     renderGuess();
-//     renderFeedback();
-//     renderSolution();
-//     renderMessage();
-// };
 
-// initialize();
+function verifyGuess(){
+    gameBoard[guessNum].forEach(function(pos, index){
+        if (pos.style.background === solutionArr){
+            feedbackBoard[guessNum][index].style = "black"
+        }
+    })
+}
 
-// function initialize(){
-//     turn = 1;
-//     winner = null;
-//     renderSolution();
-// }
+
+function addFeedback(){
+};
 
 
 
 
+function renderSolution() {
+    const randArr = Array.from({length: 4}, function() {
+        return Math.floor(Math.random() * 6) + 1;
+      });
+    solutionArr = randArr;
+    return solutionArr;
+ }
 
-
-// function newGame(){};
-
-// function checkWin([]) {
-//     if (checkWin === solution){
-//         return winner;}
-//     else {
-//         addFeedback();
-
-//     };
-// };
-
-
-// function addColor(evt) {
-//     console.dir(evt.target);
-//     if (evt.target.className !== "guess-cell") return;
-
-//     else (let countClicks = 0) {
-//         guessCells.forEach(function(idx));
-//         countClicks++;
-//         guessCells.style.backgroundColor = colorLookup[idx];
-//     }
-
-// };
-
-// function renderSolution() {
-//     const newSolution =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1);
-//     solutionArr = newSolution;
-//     return solutionArr;
-//  }
+ function attemptRemaining(){
+    let attemptsLeft = 10 - guessNum;
+    messageEl.textContent = `${attemptsLeft} Guesses remaining`;
+ }
