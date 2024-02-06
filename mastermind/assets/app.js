@@ -1,15 +1,10 @@
-const colorLookup = {
-    "0": "white",
-    "1": "red",
-    "2": "blue",
-    "3": "yellow",
-    "4": "green",
-    "5": "orange",
-    "6": "purple"
-}
+const colorLookup = [
+    "red", "blue", "yellow", 
+    "green", "orange", "purple"
+]
 
 
-let solutionArr = ["red", "blue", "yellow", "green"];
+let solutionArr = [];
 
 let winner;
 let ansNum = 0;
@@ -129,11 +124,11 @@ function addColor(e) {
 
 
 function checkGuess(){
-    if (gameArr[guessNum] === solutionArr)
-    return (winner === true)
-    else (guessNum++)
+    if (gameArr[guessNum] = solutionArr)
+    return (console.log("win"))
+    else (verifyGuess())
     ansNum = 0;
-    verifyGuess();
+    guessNum++;
     addFeedback();
     attemptRemaining();
 };
@@ -156,12 +151,21 @@ function addFeedback(){
 
 
 function renderSolution() {
-    const randArr = Array.from({length: 4}, function() {
-        return Math.floor(Math.random() * 6) + 1;
+    let randArr = Array.from({length: 4}, function() {
+        return Math.floor(Math.random() * 6);
       });
-    solutionArr = randArr;
-    return solutionArr;
+      randSolution = [
+        colorLookup[randArr[0]],
+        colorLookup[randArr[1]],
+        colorLookup[randArr[2]],
+        colorLookup[randArr[3]]
+      ];
+        solutionArr = randSolution
+    return solutionArr
+   
  }
+
+
 
  function attemptRemaining(){
     let attemptsLeft = 10 - guessNum;
