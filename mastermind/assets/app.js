@@ -3,8 +3,7 @@ const colorLookup = [
     "green", "orange", "purple"
 ]
 
-
-let solutionArr = [];
+let solutionArr = ["red", "blue", "yellow", "green"];
 
 let winner;
 let ansNum = 0;
@@ -46,7 +45,7 @@ const [...feedback7] = document.querySelectorAll("#feedback-7 > div");
 const [...feedback8] = document.querySelectorAll("#feedback-8 > div");
 const [...feedback9] = document.querySelectorAll("#feedback-9 > div");
 
-const [...solution] = document.querySelectorAll("#solution > div")
+const [...solutionEl] = document.querySelectorAll("#solution > div")
 
 
 const gameBoard = [
@@ -88,9 +87,9 @@ const feedbackBoard = [
     feedback9
 ];
 
-const solutionBoard = [
-    solution
-];
+// const solutionBoard = [
+//     solutionEl
+// ];
 
 
 resetBtn.addEventListener("click", resetGame);
@@ -124,18 +123,28 @@ function addColor(e) {
 
 
 function checkGuess(){
-    if (gameArr[guessNum] = solutionArr)
-    return (console.log("win"))
-    else (verifyGuess())
-    ansNum = 0;
+    if (solutionArr[0] === gameArr[guessNum][0] &&
+        solutionArr[1] === gameArr[guessNum][1] &&
+        solutionArr[2] === gameArr[guessNum][2] &&
+        solutionArr[3] === gameArr[guessNum][3]){
+        messageEl.textContent = `Congrats! You won in ${guessNum + 1} guesses!`;
+        solutionEl[0].style.background = solutionArr[0];
+        solutionEl[1].style.background = solutionArr[1];
+        solutionEl[2].style.background = solutionArr[2];
+        solutionEl[3].style.background = solutionArr[3]
+    }
+    else {
+    verifyGuess();
     guessNum++;
-    addFeedback();
+    ansNum = 0;
     attemptRemaining();
+    console.log('why')
+    }
 };
 
 
 function verifyGuess(){
-    const guess = {
+    let guess = {
         ans0:gameArr[guessNum][0],
         ans1:gameArr[guessNum][1],
         ans2:gameArr[guessNum][2],
