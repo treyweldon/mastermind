@@ -1,15 +1,15 @@
-const colorLookup = [
-    "white",
-    "red",
-    "blue",
-    "yellow",
-    "green",
-    "orange",
-    "purple"
-]
+const colorLookup = {
+    "0": "white",
+    "1": "red",
+    "2": "blue",
+    "3": "yellow",
+    "4": "green",
+    "5": "orange",
+    "6": "purple"
+}
 
 
-let solutionArr = [1, 2, 3, 4];
+let solutionArr = ["red", "blue", "yellow", "green"];
 
 let winner;
 let ansNum = 0;
@@ -133,18 +133,19 @@ function checkGuess(){
     return (winner === true)
     else (guessNum++)
     ansNum = 0;
-    // verifyGuess();
-    // addFeedback();
-
+    verifyGuess();
+    addFeedback();
+    attemptRemaining();
 };
 
 
 function verifyGuess(){
-    gameBoard[guessNum].forEach(function(pos, index){
-        if (pos.style.background === solutionArr){
-            feedbackBoard[guessNum][index].style = "black"
-        }
-    })
+    const guess = {
+        ans0:gameArr[guessNum][0],
+        ans1:gameArr[guessNum][1],
+        ans2:gameArr[guessNum][2],
+        ans3:gameArr[guessNum][3]
+    }
 }
 
 
