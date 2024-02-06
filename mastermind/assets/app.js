@@ -100,10 +100,12 @@ colorPurple.addEventListener("click", runGame)
 function runGame(e) {
     if (e.target.className === 'colors') {
       gameBoard[guessNum][ansNum].style.background =
-        e.target.style.background;
+        e.target.id;
       ansNum++;
       const guess = gameBoard[guessNum]
       console.log(ansNum)
+      console.dir("color")
+      console.log(e.target.id)
     }
     if (ansNum === 4) {
         ansNum = 0;
