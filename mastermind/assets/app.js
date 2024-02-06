@@ -3,8 +3,8 @@ const colorLookup = {
     '1': 'red',
     '2': 'blue',
     '3': 'yellow',
-    '4': 'orange',
-    '5': 'green',
+    '4': 'green',
+    '5': 'orange',
     '6': 'purple'
 };
 
@@ -51,6 +51,8 @@ const [...feedback7] = document.querySelectorAll("#feedback-7 > div");
 const [...feedback8] = document.querySelectorAll("#feedback-8 > div");
 const [...feedback9] = document.querySelectorAll("#feedback-9 > div");
 
+const [...solution] = document.querySelectorAll("#solution > div")
+
 
 const gameBoard = [
     guess0,
@@ -84,33 +86,27 @@ resetBtn.addEventListener("click", function(e){
     console.dir(e.target);
 });
 
-checkGuessBtn.addEventListener("click", function(e){
-    console.dir(e.target);
-});
+checkGuessBtn.addEventListener("click", checkGuess);
 
-colorRed.addEventListener("click", runGame)
-colorBlue.addEventListener("click", runGame)
-colorYellow.addEventListener("click", runGame)
-colorGreen.addEventListener("click", runGame)
-colorOrange.addEventListener("click", runGame)
-colorPurple.addEventListener("click", runGame)
+colorRed.addEventListener("click", addColor)
+colorBlue.addEventListener("click", addColor)
+colorYellow.addEventListener("click", addColor)
+colorGreen.addEventListener("click", addColor)
+colorOrange.addEventListener("click", addColor)
+colorPurple.addEventListener("click", addColor)
 
 
 
-function runGame(e) {
+function addColor(e) {
     if (e.target.className === 'colors') {
       gameBoard[guessNum][ansNum].style.background =
         e.target.id;
       ansNum++;
       const guess = gameBoard[guessNum]
-      console.log(ansNum)
-      console.dir("color")
-      console.log(e.target.id)
     }
     if (ansNum === 4) {
         ansNum = 0;
-        guessNum++;
-        console.log("..." + guessNum)
+        return
   }
 };  
   
@@ -123,6 +119,13 @@ function render(){
         })
 })
 }
+
+function checkGuess(){
+    if (gameBoard[guessNum] === solutionArr)
+    return (winner === true);
+    else (guessNum++)
+    ansNum = 0;
+};
 
 // function render() {
 //     renderGuess();
@@ -168,9 +171,8 @@ function render(){
 
 // };
 
-function renderSolution() {
-    const newSolution =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1);
-    solutionArr = newSolution;
-    return solutionArr;
- }
-
+// function renderSolution() {
+//     const newSolution =  Array.from({length: 4}, () => Math.floor(Math.random() * 6) + 1);
+//     solutionArr = newSolution;
+//     return solutionArr;
+//  }
