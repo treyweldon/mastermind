@@ -134,18 +134,20 @@ function checkGuess(){
         solutionArr[1] === gameArr[guessNum][1] &&
         solutionArr[2] === gameArr[guessNum][2] &&
         solutionArr[3] === gameArr[guessNum][3]){
-        messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
-        solutionEl[0].style.background === solutionArr[0];
-        solutionEl[1].style.background === solutionArr[1];
-        solutionEl[2].style.background === solutionArr[2];
-        solutionEl[3].style.background === solutionArr[3];
+            solutionEl[0].style.background === solutionArr[0];
+            solutionEl[1].style.background === solutionArr[1];
+            solutionEl[2].style.background === solutionArr[2];
+            solutionEl[3].style.background === solutionArr[3];
+            messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
     }
     else {
     checkBlack();
+    addFeedback();
+    console.log(feedbackArr[guessNum])
+    // feedbackBoard[guessNum].style.backgroundColor = feedbackArr[guessNum]
     guessNum++;
     ansNum = 0;
     attemptsRemaining();
-    console.log('check')
     }
 };
 
@@ -153,23 +155,18 @@ function checkGuess(){
 function checkBlack(){
     gameBoard[guessNum].forEach(function(ans, index){
         if (ans.style.background === solutionArr[index]) {
-            // function blackPegs = 
-            // feedbackArr[guessNum] = gameArr[guessNum].filter(feedbackArr[guessNum])
             feedbackArr[guessNum].pop();
             feedbackArr[guessNum].unshift("black");
-            // feedbackArr[guessNum].splice(0, "black")
-            ;
-            
-            // console.log(feedbackBoard[guessNum].style.background)
         }
-        feedbackBoard[guessNum][index].style.background = feedbackArr[guessNum]
-        console.log(feedbackArr[guessNum])
+        // feedbackBoard[guessNum][index].style.background = feedbackArr[guessNum]
+        // console.log(feedbackArr[guessNum])
     })
 }
 
-
+function checkWhite(){};
 
 function addFeedback(){
+    // feedbackBoard[guessNum].style.background = feedbackArr[guessNum];
 };
 
 
@@ -185,9 +182,8 @@ function renderSolution() {
         colorLookup[randArr[2]],
         colorLookup[randArr[3]]
       ];
-        solutionArr = randSolution
-    return solutionArr
-   
+        solutionArr = randSolution;
+    return solutionArr;
  }
 
  function attemptsRemaining(){
