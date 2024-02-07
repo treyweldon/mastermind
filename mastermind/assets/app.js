@@ -8,8 +8,6 @@ let solutionArr = ["red", "blue", "yellow", "green"];
 let ansNum = 0;
 let guessNum = 0;
 
-let results = [null, null, null, null];
-
 const colorRed = document.querySelector('#red');
 const colorBlue = document.querySelector('#blue');
 const colorYellow = document.querySelector('#yellow');
@@ -83,6 +81,19 @@ let feedbackArr = [
     [null, null, null, null]
 ]
 
+let resultsRemaining = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+];
+
 resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
 
@@ -108,7 +119,7 @@ function addColor(e) {
     if (ansNum === 4) {
         ansNum = 0;
         return
-  }
+  } 
 };  
   
 function checkGuess(){
@@ -124,6 +135,7 @@ function checkGuess(){
     }
     else {
         checkBlack();
+        console.log(resultsRemaining[guessNum])
         checkWhite();
         console.log(feedbackArr[guessNum])
         addFeedback();
@@ -136,20 +148,23 @@ function checkGuess(){
 function checkBlack(){
     gameBoard[guessNum].forEach(function(ans, index){
         if (ans.style.background === solutionArr[index]) {
-            feedbackArr[guessNum].pop();
             feedbackArr[guessNum].unshift("black");
+            feedbackArr[guessNum].pop();
+            resultsRemaining[guessNum].push(null)
         }
-        // if (ans.style.background !== solutionArr[index]) {
-        //     results = gameBoard[guessNum].map(function(ans, index) {
-        //         return solutionArr[index];
-        //       });
-              
-        // }
+        if (ans.style.background !== solutionArr[index]) {
+            resultsRemaining[guessNum].push(ans.style.background);
+        }
     })
 }
 
 function checkWhite(){
-    gameBoard[guessNum].forEach
+    // resultsRemaining[guessNum].forEach(function(ans){
+    //     if (gameArr[guessNum] === resultsRemaining.includes(ans)){
+    //         feedbackArr[guessNum].unshift("white");
+    //         feedbackArr[guessNum].pop();
+    //     }
+    // })
 };
 
 function addFeedback(){
@@ -170,6 +185,7 @@ function renderSolution() {
         colorLookup[randArr[3]]
       ];
         solutionArr = randSolution;
+        console.log(solutionArr);
     return solutionArr;
  }
 
