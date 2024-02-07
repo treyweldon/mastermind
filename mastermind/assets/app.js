@@ -87,10 +87,18 @@ const feedbackBoard = [
     feedback9
 ];
 
-// const solutionBoard = [
-//     solutionEl
-// ];
-
+let feedbackArr = [
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null]
+]
 
 resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
@@ -104,8 +112,8 @@ colorPurple.addEventListener("click", addColor)
 
 
 function resetGame(){
+    location.reload();
 };
-
 
 function addColor(e) {
     if (e.target.className === 'colors') {
@@ -121,36 +129,44 @@ function addColor(e) {
 };  
   
 
-
 function checkGuess(){
     if (solutionArr[0] === gameArr[guessNum][0] &&
         solutionArr[1] === gameArr[guessNum][1] &&
         solutionArr[2] === gameArr[guessNum][2] &&
         solutionArr[3] === gameArr[guessNum][3]){
-        messageEl.textContent = `Congrats! You won in ${guessNum + 1} guesses!`;
-        solutionEl[0].style.background = solutionArr[0];
-        solutionEl[1].style.background = solutionArr[1];
-        solutionEl[2].style.background = solutionArr[2];
-        solutionEl[3].style.background = solutionArr[3]
+        messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
+        solutionEl[0].style.background === solutionArr[0];
+        solutionEl[1].style.background === solutionArr[1];
+        solutionEl[2].style.background === solutionArr[2];
+        solutionEl[3].style.background === solutionArr[3];
     }
     else {
-    verifyGuess();
+    checkBlack();
     guessNum++;
     ansNum = 0;
-    attemptRemaining();
-    console.log('why')
+    attemptsRemaining();
+    console.log('check')
     }
 };
 
 
-function verifyGuess(){
-    let guess = {
-        ans0:gameArr[guessNum][0],
-        ans1:gameArr[guessNum][1],
-        ans2:gameArr[guessNum][2],
-        ans3:gameArr[guessNum][3]
-    }
+function checkBlack(){
+    gameBoard[guessNum].forEach(function(ans, index){
+        if (ans.style.background === solutionArr[index]) {
+            // function blackPegs = 
+            // feedbackArr[guessNum] = gameArr[guessNum].filter(feedbackArr[guessNum])
+            feedbackArr[guessNum].pop();
+            feedbackArr[guessNum].unshift("black");
+            // feedbackArr[guessNum].splice(0, "black")
+            ;
+            
+            // console.log(feedbackBoard[guessNum].style.background)
+        }
+        feedbackBoard[guessNum][index].style.background = feedbackArr[guessNum]
+        console.log(feedbackArr[guessNum])
+    })
 }
+
 
 
 function addFeedback(){
@@ -174,9 +190,7 @@ function renderSolution() {
    
  }
 
-
-
- function attemptRemaining(){
+ function attemptsRemaining(){
     let attemptsLeft = 10 - guessNum;
-    messageEl.textContent = `${attemptsLeft} Guesses remaining`;
+    messageEl.textContent = `${attemptsLeft} Attempts remaining`;
  }

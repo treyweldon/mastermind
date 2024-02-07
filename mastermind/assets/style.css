@@ -27,6 +27,7 @@ grid-column: span 2;
 p {
 grid-column: 2 / 4;
 margin-top: 25px;
+text-align: justify;
 }
 
 #board-wrapper {
