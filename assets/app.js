@@ -8,6 +8,8 @@ let solutionArr = ["red", "blue", "yellow", "green"];
 let ansNum = 0;
 let guessNum = 0;
 
+let results = [null, null, null, null];
+
 const colorRed = document.querySelector('#red');
 const colorBlue = document.querySelector('#blue');
 const colorYellow = document.querySelector('#yellow');
@@ -121,8 +123,8 @@ function checkGuess(){
             messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
     }
     else {
-        checkWhite();
         checkBlack();
+        checkWhite();
         console.log(feedbackArr[guessNum])
         addFeedback();
         guessNum++;
@@ -136,6 +138,12 @@ function checkBlack(){
         if (ans.style.background === solutionArr[index]) {
             feedbackArr[guessNum].pop();
             feedbackArr[guessNum].unshift("black");
+        }
+        if (ans.style.background !== solutionArr[index]) {
+            results = gameBoard[guessNum].map(function(ans, index) {
+                return solutionArr[index];
+              });
+              
         }
     })
 }
