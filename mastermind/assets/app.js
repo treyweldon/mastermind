@@ -49,16 +49,8 @@ const [...solutionEl] = document.querySelectorAll("#solution > div")
 
 
 const gameBoard = [
-    guess0,
-    guess1,
-    guess2,
-    guess3,
-    guess4,
-    guess5,
-    guess6,
-    guess7,
-    guess8,
-    guess9
+    guess0, guess1, guess2, guess3, guess4,
+    guess5, guess6, guess7, guess8, guess9
   ];
 
 let gameArr = [
@@ -75,16 +67,8 @@ let gameArr = [
 ]
   
 const feedbackBoard = [
-    feedback0,
-    feedback1,
-    feedback2,
-    feedback3,
-    feedback4,
-    feedback5,
-    feedback6,
-    feedback7,
-    feedback8,
-    feedback9
+    feedback0, feedback1, feedback2, feedback3, feedback4,
+    feedback5, feedback6, feedback7, feedback8, feedback9
 ];
 
 let feedbackArr = [
@@ -128,7 +112,6 @@ function addColor(e) {
   }
 };  
   
-
 function checkGuess(){
     if (solutionArr[0] === gameArr[guessNum][0] &&
         solutionArr[1] === gameArr[guessNum][1] &&
@@ -142,15 +125,14 @@ function checkGuess(){
     }
     else {
     checkBlack();
-    addFeedback();
+    checkWhite();
     console.log(feedbackArr[guessNum])
-    // feedbackBoard[guessNum].style.backgroundColor = feedbackArr[guessNum]
+    addFeedback();
     guessNum++;
     ansNum = 0;
     attemptsRemaining();
     }
 };
-
 
 function checkBlack(){
     gameBoard[guessNum].forEach(function(ans, index){
@@ -158,12 +140,12 @@ function checkBlack(){
             feedbackArr[guessNum].pop();
             feedbackArr[guessNum].unshift("black");
         }
-        // feedbackBoard[guessNum][index].style.background = feedbackArr[guessNum]
-        // console.log(feedbackArr[guessNum])
     })
 }
 
-function checkWhite(){};
+function checkWhite(){
+    gameBoard[guessNum].forEach
+};
 
 function addFeedback(){
     feedbackBoard[guessNum][0].style.background = feedbackArr[guessNum][0];
