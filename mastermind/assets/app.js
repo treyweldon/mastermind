@@ -166,7 +166,10 @@ function checkBlack(){
 function checkWhite(){};
 
 function addFeedback(){
-    // feedbackBoard[guessNum].style.background = feedbackArr[guessNum];
+    feedbackBoard[guessNum][0].style.background = feedbackArr[guessNum][0];
+    feedbackBoard[guessNum][1].style.background = feedbackArr[guessNum][1];
+    feedbackBoard[guessNum][2].style.background = feedbackArr[guessNum][2];
+    feedbackBoard[guessNum][3].style.background = feedbackArr[guessNum][3];
 };
 
 
