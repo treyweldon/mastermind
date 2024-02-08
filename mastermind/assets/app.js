@@ -5,6 +5,22 @@ const colorLookup = [
 
 let solutionArr = [];
 
+renderSolution();
+console.log(solutionArr)
+
+let solutionBoard = [
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr
+]
+
 let ansNum = 0;
 let guessNum = 0;
 
@@ -72,10 +88,6 @@ colorOrange.addEventListener("click", addGuess)
 colorPurple.addEventListener("click", addGuess)
 
 
-renderSolution();
-console.log(solutionArr)
-
-
 function resetGame(){
     location.reload();
 };
@@ -112,6 +124,8 @@ function checkGuess() {
     } 
     else {
       checkBlack();
+      console.log(resultsRemaining[guessNum])
+    //   console.log(solutionBoard[guessNum])
       checkWhite();
       addFeedback();
       guessNum++;
@@ -126,6 +140,8 @@ function checkBlack() {
         if (ans.style.background === solutionArr[index]) {
             feedbackArr[guessNum].unshift("black");
             feedbackArr[guessNum].pop();
+            delete solutionBoard[guessNum][index]
+            // console.log(solutionBoard[guessNum])
         }
         if (ans.style.background !== solutionArr[index]) {
             resultsRemaining[guessNum].push(ans.style.background);
@@ -135,13 +151,41 @@ function checkBlack() {
 
 function checkWhite(){
     resultsRemaining[guessNum].forEach(function(ans) {
-        if (solutionArr.includes(ans)) {
+        if (solutionBoard[guessNum].includes(ans)) {
             feedbackArr[guessNum].unshift("white");
             feedbackArr[guessNum].pop();
         }
     });
     
 }
+
+// function checkWhite(){
+//     resultsRemaining[guessNum].forEach(function(ans) {
+//         if (solutionArr.includes(ans)) {
+//             feedbackArr[guessNum].unshift("white");
+//             feedbackArr[guessNum].pop();
+//         }
+//     });
+    
+// }
+
+// function checkWhite() {
+//     gameBoard[guessNum].forEach(function(ans, index){
+//         if (ans.style.background === solutionArr[index]) {
+//             return;
+//         }
+//         if (ans.style.background !== solutionArr[index]) {
+//             resultsRemaining[guessNum].forEach(function(ans) {
+//                 if (solutionArr.includes(ans)) {
+//                     feedbackArr[guessNum].unshift("white");
+//                     feedbackArr[guessNum].pop();
+//                 }
+//             });
+            
+//         }
+//     })
+// };
+
 
 // function checkWhite() {
 //     gameBoard[guessNum].forEach(function(ans, index){
