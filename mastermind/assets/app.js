@@ -123,23 +123,12 @@ function addColor(e) {
 };  
   
 function checkGuess(){
-    // if (solutionArr[0] === gameArr[guessNum][0] &&
-    //     solutionArr[1] === gameArr[guessNum][1] &&
-    //     solutionArr[2] === gameArr[guessNum][2] &&
-    //     solutionArr[3] === gameArr[guessNum][3]){
-    //         solutionEl[0].style.background = solutionArr[0];
-    //         solutionEl[1].style.background = solutionArr[1];
-    //         solutionEl[2].style.background = solutionArr[2];
-    //         solutionEl[3].style.background = solutionArr[3];
-    //         messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
-    // }
     let isMatch = true;
         gameArr[guessNum].forEach(function(item, index) {
     if (solutionArr[index] !== item) {
     isMatch = false;
   }
 });
-
     if (isMatch) {
   gameArr[guessNum].forEach(function(item, index) {
     solutionEl[index].style.background = solutionArr[index];
@@ -172,20 +161,19 @@ function checkBlack(){
 }
 
 function checkWhite(){
-    resultsRemaining[guessNum].forEach(function(ans){
-        if (gameArr[guessNum] === resultsRemaining.includes(ans)){
+    resultsRemaining[guessNum].forEach(function(ans, index){
+        if (gameArr[guessNum] = resultsRemaining[!index]){
             feedbackArr[guessNum].unshift("white");
             feedbackArr[guessNum].pop();
         }
     })
 };
 
-function addFeedback(){
-    feedbackBoard[guessNum][0].style.background = feedbackArr[guessNum][0];
-    feedbackBoard[guessNum][1].style.background = feedbackArr[guessNum][1];
-    feedbackBoard[guessNum][2].style.background = feedbackArr[guessNum][2];
-    feedbackBoard[guessNum][3].style.background = feedbackArr[guessNum][3];
-};
+function addFeedback() {
+    feedbackArr[guessNum].forEach(function(feedbackColor, index) {
+        feedbackBoard[guessNum][index].style.background = feedbackColor;
+    });
+}
 
 function renderSolution() {
     let randArr = Array.from({length: 4}, function() {
