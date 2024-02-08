@@ -5,19 +5,6 @@ const colorLookup = [
 
 let solutionArr = [];
 
-let solutionBoard = [
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-];
-
 let ansNum = 0;
 let guessNum = 0;
 
@@ -124,10 +111,7 @@ function checkGuess() {
       messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
     } 
     else {
-    //   console.log(gameArr[guessNum])
       checkBlack();
-    //   console.log(resultsRemaining[guessNum])
-    //   console.log(feedbackArr[guessNum])
       checkWhite();
       addFeedback();
       guessNum++;
@@ -142,7 +126,6 @@ function checkBlack() {
         if (ans.style.background === solutionArr[index]) {
             feedbackArr[guessNum].unshift("black");
             feedbackArr[guessNum].pop();
-            resultsRemaining[guessNum].push(null)
         }
         if (ans.style.background !== solutionArr[index]) {
             resultsRemaining[guessNum].push(ans.style.background);
@@ -150,15 +133,25 @@ function checkBlack() {
     })
 };
 
+function checkWhite(){
+    resultsRemaining[guessNum].forEach(function(ans) {
+        if (solutionArr.includes(ans)) {
+            feedbackArr[guessNum].unshift("white");
+            feedbackArr[guessNum].pop();
+        }
+    });
+    
+}
+
 // function checkWhite() {
 //     gameBoard[guessNum].forEach(function(ans, index){
 //         if (ans.style.background === solutionArr[index]) {
-//             solutionBoard[guessNum].pop(ans)
+//             // solutionBoard[guessNum][index].filter(ans)
 //             console.log(solutionBoard[guessNum])
 //         }
-//         else (resultsRemaining[index] === solutionBoard[guessNum][index])
-//         feedbackArr[guessNum].unshift("white");
-//         feedbackArr[guessNum].pop();
+//         else (resultsRemaining[guessNum][index] === solutionBoard[guessNum][index])
+//             feedbackArr[guessNum].unshift("white");
+//             feedbackArr[guessNum].pop();
 //     })
 // };
 
@@ -200,8 +193,8 @@ function renderSolution() {
         return Math.floor(Math.random() * 6);
       });
       let randSolution = [];
-      randArr.forEach(function(randIndex) {
-          randSolution.push(colorLookup[randIndex]);
+      randArr.forEach(function(index) {
+          randSolution.push(colorLookup[index]);
       });
         solutionArr = randSolution;
     return solutionArr;
