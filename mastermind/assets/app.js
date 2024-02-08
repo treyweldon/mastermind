@@ -3,7 +3,20 @@ const colorLookup = [
     "green", "orange", "purple"
 ]
 
-let solutionArr = ["red", "blue", "yellow", "green"];
+let solutionArr = [];
+
+let solutionBoard = [
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+    solutionArr,
+];
 
 let ansNum = 0;
 let guessNum = 0;
@@ -22,28 +35,18 @@ const messageEl = document.querySelector('h2');
 const [...solutionEl] = document.querySelectorAll("#solution > div")
 
 const gameBoard = [];
-for (let i = 0; i < 10; i++) {
-  gameBoard.push([...document.querySelectorAll(`#guess-${i} > div`)]);
-}
+    for (let i = 0; i < 10; i++) {
+    gameBoard.push([...document.querySelectorAll(`#guess-${i} > div`)]);
+};
   
 const feedbackBoard = [];
-for (let i = 0; i < 10; i++) {
-  feedbackBoard.push([...document.querySelectorAll(`#feedback-${i} > div`)]);
-}
+    for (let i = 0; i < 10; i++) {
+    feedbackBoard.push([...document.querySelectorAll(`#feedback-${i} > div`)]);
+};
 
-
-let gameArr = [
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null]
-]
+let gameArr = Array.from({ length: 10 }, function() {
+    return [];
+});
 
 let feedbackArr = [
     [null, null, null, null],
@@ -56,7 +59,7 @@ let feedbackArr = [
     [null, null, null, null],
     [null, null, null, null],
     [null, null, null, null]
-]
+];
 
 let resultsRemaining = [
     [],
@@ -68,25 +71,29 @@ let resultsRemaining = [
     [],
     [],
     [],
-    [],
+    []
 ];
 
 resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
 
-colorRed.addEventListener("click", addColor)
-colorBlue.addEventListener("click", addColor)
-colorYellow.addEventListener("click", addColor)
-colorGreen.addEventListener("click", addColor)
-colorOrange.addEventListener("click", addColor)
-colorPurple.addEventListener("click", addColor)
+colorRed.addEventListener("click", addGuess)
+colorBlue.addEventListener("click", addGuess)
+colorYellow.addEventListener("click", addGuess)
+colorGreen.addEventListener("click", addGuess)
+colorOrange.addEventListener("click", addGuess)
+colorPurple.addEventListener("click", addGuess)
+
+
+renderSolution();
+console.log(solutionArr)
 
 
 function resetGame(){
     location.reload();
 };
 
-function addColor(e) {
+function addGuess(e) {
     if (e.target.className === 'colors') {
       gameBoard[guessNum][ansNum].style.background =
         e.target.id;
@@ -99,32 +106,38 @@ function addColor(e) {
   } 
 };  
   
-function checkGuess(){
+function checkGuess() {
+    if (gameArr[guessNum].length !== 4) {
+      messageEl.textContent = "Guess must be four colors";
+      return;
+    }
     let isMatch = true;
-        gameArr[guessNum].forEach(function(item, index) {
-    if (solutionArr[index] !== item) {
-    isMatch = false;
-  }
-});
+    gameArr[guessNum].forEach(function(item, index) {
+      if (solutionArr[index] !== item) {
+        isMatch = false;
+      }
+    });
     if (isMatch) {
-  gameArr[guessNum].forEach(function(item, index) {
-    solutionEl[index].style.background = solutionArr[index];
-  });
-  messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
-}
+      gameArr[guessNum].forEach(function(item, index) {
+        solutionEl[index].style.background = solutionArr[index];
+      });
+      messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
+    } 
     else {
-        checkBlack();
-        console.log(resultsRemaining[guessNum])
-        console.log(feedbackArr[guessNum])
-        checkWhite();
-        addFeedback();
-        guessNum++;
-        ansNum = 0;
-        attemptsRemaining();
+    //   console.log(gameArr[guessNum])
+      checkBlack();
+    //   console.log(resultsRemaining[guessNum])
+    //   console.log(feedbackArr[guessNum])
+      checkWhite();
+      addFeedback();
+      guessNum++;
+      ansNum = 0;
+      attemptsRemaining();
     }
 };
+  
 
-function checkBlack(){
+function checkBlack() {
     gameBoard[guessNum].forEach(function(ans, index){
         if (ans.style.background === solutionArr[index]) {
             feedbackArr[guessNum].unshift("black");
@@ -135,22 +148,52 @@ function checkBlack(){
             resultsRemaining[guessNum].push(ans.style.background);
         }
     })
-}
-
-function checkWhite(){
-    resultsRemaining[guessNum].forEach(function(ans, index){
-        if (gameArr[guessNum] = resultsRemaining[!index]){
-            feedbackArr[guessNum].unshift("white");
-            feedbackArr[guessNum].pop();
-        }
-    })
 };
+
+// function checkWhite() {
+//     gameBoard[guessNum].forEach(function(ans, index){
+//         if (ans.style.background === solutionArr[index]) {
+//             solutionBoard[guessNum].pop(ans)
+//             console.log(solutionBoard[guessNum])
+//         }
+//         else (resultsRemaining[index] === solutionBoard[guessNum][index])
+//         feedbackArr[guessNum].unshift("white");
+//         feedbackArr[guessNum].pop();
+//     })
+// };
+
+// function checkWhite() {
+//     resultsRemaining[guessNum].forEach(function(ans1) {
+//         if (resultsRemaining[guessNum].includes(function(ans1){
+//             resultsRemaining[guessNum] === solutionArr
+//         }))
+//         feedbackArr[guessNum].unshift("black");
+//         feedbackArr[guessNum].pop();
+//     })
+// }
+
+// function checkWhite() {
+//     if (resultsRemaining.includes(function(ans1){
+//         resultsRemaining === solutionArr
+//     })) 
+//     feedbackArr[guessNum].unshift("black");
+//     feedbackArr[guessNum].pop();
+// };
+
+// function checkWhite(){
+//     resultsRemaining[guessNum].forEach(function(ans, index){
+//         if (gameArr[guessNum] = resultsRemaining[!index]){
+//             feedbackArr[guessNum].unshift("white");
+//             feedbackArr[guessNum].pop();
+//         }
+//     })
+// };
 
 function addFeedback() {
     feedbackArr[guessNum].forEach(function(feedbackColor, index) {
         feedbackBoard[guessNum][index].style.background = feedbackColor;
     });
-}
+};
 
 function renderSolution() {
     let randArr = Array.from({length: 4}, function() {
@@ -162,9 +205,9 @@ function renderSolution() {
       });
         solutionArr = randSolution;
     return solutionArr;
- }
+};
 
  function attemptsRemaining(){
     let attemptsLeft = 10 - guessNum;
     messageEl.textContent = `${attemptsLeft} Attempts remaining`;
- }
+};
