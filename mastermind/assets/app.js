@@ -9,19 +9,6 @@ let solutionArrEl = [];
 renderSolution();
 console.log(solutionArr)
 
-let solutionBoard = [
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-    solutionArrEl,
-]
-
 let ansNum = 0;
 let guessNum = 0;
 
@@ -59,6 +46,9 @@ let feedbackArr = Array.from({ length: 10 }, function() {
 let resultsRemaining = Array.from({ length: 10 }, function() {
     return [];
 });
+
+let solutionBoard = createNestedArray();
+
 
 resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
@@ -237,3 +227,11 @@ function renderSolution() {
     let attemptsLeft = 10 - guessNum;
     messageEl.textContent = `${attemptsLeft} Attempts remaining`;
 };
+
+function createNestedArray() {
+    let nestedArray = []; 
+    for (let i = 0; i < 10; i++) {
+        nestedArray.push(solutionArrEl.slice());
+    }
+    return nestedArray;
+}
