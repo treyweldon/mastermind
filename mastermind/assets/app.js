@@ -179,14 +179,12 @@ function renderSolution() {
     let randArr = Array.from({length: 4}, function() {
         return Math.floor(Math.random() * 6);
       });
-      randSolution = [
-        colorLookup[randArr[0]],
-        colorLookup[randArr[1]],
-        colorLookup[randArr[2]],
-        colorLookup[randArr[3]]
-      ];
+      let randSolution = [];
+      randArr.forEach(function(randIndex) {
+          randSolution.push(colorLookup[randIndex]);
+      });
         solutionArr = randSolution;
-        console.log(solutionArr);
+        // console.log(solutionArr);
     return solutionArr;
  }
 
