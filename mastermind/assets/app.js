@@ -19,36 +19,18 @@ const checkGuessBtn = document.querySelector('#check');
 const resetBtn = document.querySelector('#reset');
 const messageEl = document.querySelector('h2');
 
-const [...guessCells] = document.querySelectorAll(".guess > div");
-
-const [...guess0] = document.querySelectorAll("#guess-0 > div");
-const [...guess1] = document.querySelectorAll("#guess-1 > div");
-const [...guess2] = document.querySelectorAll("#guess-2 > div");
-const [...guess3] = document.querySelectorAll("#guess-3 > div");
-const [...guess4] = document.querySelectorAll("#guess-4 > div");
-const [...guess5] = document.querySelectorAll("#guess-5 > div");
-const [...guess6] = document.querySelectorAll("#guess-6 > div");
-const [...guess7] = document.querySelectorAll("#guess-7 > div");
-const [...guess8] = document.querySelectorAll("#guess-8 > div");
-const [...guess9] = document.querySelectorAll("#guess-9 > div");
-
-const [...feedback0] = document.querySelectorAll("#feedback-0 > div");
-const [...feedback1] = document.querySelectorAll("#feedback-1 > div");
-const [...feedback2] = document.querySelectorAll("#feedback-2 > div");
-const [...feedback3] = document.querySelectorAll("#feedback-3 > div");
-const [...feedback4] = document.querySelectorAll("#feedback-4 > div");
-const [...feedback5] = document.querySelectorAll("#feedback-5 > div");
-const [...feedback6] = document.querySelectorAll("#feedback-6 > div");
-const [...feedback7] = document.querySelectorAll("#feedback-7 > div");
-const [...feedback8] = document.querySelectorAll("#feedback-8 > div");
-const [...feedback9] = document.querySelectorAll("#feedback-9 > div");
-
 const [...solutionEl] = document.querySelectorAll("#solution > div")
 
-const gameBoard = [
-    guess0, guess1, guess2, guess3, guess4,
-    guess5, guess6, guess7, guess8, guess9
-  ];
+const gameBoard = [];
+for (let i = 0; i < 10; i++) {
+  gameBoard.push([...document.querySelectorAll(`#guess-${i} > div`)]);
+}
+  
+const feedbackBoard = [];
+for (let i = 0; i < 10; i++) {
+  feedbackBoard.push([...document.querySelectorAll(`#feedback-${i} > div`)]);
+}
+
 
 let gameArr = [
     [null, null, null, null],
@@ -62,11 +44,6 @@ let gameArr = [
     [null, null, null, null],
     [null, null, null, null]
 ]
-  
-const feedbackBoard = [
-    feedback0, feedback1, feedback2, feedback3, feedback4,
-    feedback5, feedback6, feedback7, feedback8, feedback9
-];
 
 let feedbackArr = [
     [null, null, null, null],
@@ -184,7 +161,6 @@ function renderSolution() {
           randSolution.push(colorLookup[randIndex]);
       });
         solutionArr = randSolution;
-        // console.log(solutionArr);
     return solutionArr;
  }
 
