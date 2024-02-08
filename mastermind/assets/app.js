@@ -4,21 +4,22 @@ const colorLookup = [
 ]
 
 let solutionArr = [];
+let solutionArrEl = [];
 
 renderSolution();
 console.log(solutionArr)
 
 let solutionBoard = [
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr,
-    solutionArr
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
+    solutionArrEl,
 ]
 
 let ansNum = 0;
@@ -51,31 +52,13 @@ let gameArr = Array.from({ length: 10 }, function() {
     return [];
 });
 
-let feedbackArr = [
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null]
-];
+let feedbackArr = Array.from({ length: 10 }, function() {
+    return [];
+});
 
-let resultsRemaining = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    []
-];
+let resultsRemaining = Array.from({ length: 10 }, function() {
+    return [];
+});
 
 resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
@@ -139,7 +122,8 @@ function checkBlack() {
     gameBoard[guessNum].forEach(function(ans, index){
         if (ans.style.background === solutionArr[index]) {
             feedbackArr[guessNum].unshift("black");
-            feedbackArr[guessNum].pop();
+            // feedbackArr[guessNum].pop();
+            resultsRemaining[guessNum].push(null)
             delete solutionBoard[guessNum][index]
             // console.log(solutionBoard[guessNum])
         }
@@ -150,10 +134,14 @@ function checkBlack() {
 };
 
 function checkWhite(){
-    resultsRemaining[guessNum].forEach(function(ans) {
+    resultsRemaining[guessNum].forEach(function(ans, index) {
+        if (resultsRemaining[guessNum][index] === solutionArr[index]) {
+            console.log("skip")
+        }
         if (solutionBoard[guessNum].includes(ans)) {
-            feedbackArr[guessNum].unshift("white");
-            feedbackArr[guessNum].pop();
+            feedbackArr[guessNum].push("white");
+            // feedbackArr[guessNum].pop();
+            // delete solutionBoard[guessNum][index];
         }
     });
     
@@ -241,7 +229,8 @@ function renderSolution() {
           randSolution.push(colorLookup[index]);
       });
         solutionArr = randSolution;
-    return solutionArr;
+        solutionArrEl = solutionArr
+    return solutionArr, solutionArrEl;
 };
 
  function attemptsRemaining(){
