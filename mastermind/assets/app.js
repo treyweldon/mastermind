@@ -124,7 +124,7 @@ function checkGuess() {
     } 
     else {
       checkBlack();
-      console.log(resultsRemaining[guessNum])
+    //   console.log(resultsRemaining[guessNum])
     //   console.log(solutionBoard[guessNum])
       checkWhite();
       addFeedback();
