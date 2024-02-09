@@ -8,7 +8,9 @@ body {
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: 1fr 5fr 1fr;
   align-items: center;
-  background: radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%);
+  background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+  linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+  linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
 }
 
 h1 {
@@ -28,7 +30,7 @@ h2 {
   color: lightgray;
   -webkit-text-stroke: 1.5px black;
   text-shadow: rgb(220, 220, 220) 0 0 3px;
-  font-size: 28px;
+  font-size: 32px;
 }
 
 p {
