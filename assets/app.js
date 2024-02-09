@@ -7,6 +7,7 @@ let solutionArr = [];
 let solutionArrEl = [];
 
 renderSolution();
+console.log(solutionArr)
 
 let ansNum = 0;
 let guessNum = 0;
@@ -106,7 +107,8 @@ function checkBlack() {
     gameBoard[guessNum].forEach(function(ans, index){
         if (ans.style.background === solutionArr[index]) {
             feedbackArr[guessNum].push("black");
-            delete solutionBoard[guessNum][index]
+            resultsRemaining[guessNum].push(null);
+            delete solutionBoard[guessNum][index];
         }
         if (ans.style.background !== solutionArr[index]) {
             resultsRemaining[guessNum].push(ans.style.background);
@@ -117,6 +119,7 @@ function checkBlack() {
 function checkWhite(){
     resultsRemaining[guessNum].forEach(function(ans, index) {
         if (solutionBoard[guessNum].includes(ans)) {
+            delete solutionBoard[guessNum][index];
             feedbackArr[guessNum].push("white");
         }
     });
@@ -137,8 +140,8 @@ function renderSolution() {
       randArr.forEach(function(index) {
           randSolution.push(colorLookup[index]);
       });
-        solutionArr = randSolution;
-        solutionArrEl = solutionArr
+    solutionArr = randSolution;
+    solutionArrEl = solutionArr;
     return solutionArr, solutionArrEl;
 };
 
