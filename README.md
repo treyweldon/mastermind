@@ -13,7 +13,7 @@ SCREENSHOTS
 
 TECHNOLOGIES USED
 
-HTML5, CSS, JavaScript
+JavaScript, HTML, and CSS 
 
 GETTING STARTED 
 
@@ -23,4 +23,4 @@ In order to make your guess, select your answer by clicking on the desired color
 
 NEXT STEP
 
-The next feature I would add is a hint button. This button would reveal one of the code elements at random, but at the cost of one of the player's guesses. This would make it easier to guess, since the player would only need to match three colors, but offset that advantage by giving them fewer chances.
+The next feature I would add would be a hint button. This button would reveal one of the code elements at random, but at the cost of one of the player's guesses. This would make it easier to guess the code, since the player would only need to match three colors, but would also offset that gained advantage by giving them fewer chances. The overall result would be a slightly easier gameplay.
