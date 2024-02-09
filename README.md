@@ -5,7 +5,18 @@ SCREENSHOTS
 /Users/treyweldon/Desktop/Screenshot 1.png
 /Users/treyweldon/Desktop/Screenshot 2.png
 /Users/treyweldon/Desktop/Screenshot 3.png
-/Users/treyweldon/Desktop/Screenshot 4.png
+
+
+
+
+
+![Game at Launch](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%201.png)
+
+![Correct color, incorrect location: white pegs returned](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%202.png)
+
+![Correct color, correct location: black pegs returned](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%203.png)
+
+![When code is matched](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%204.png)
 
 TECHNOLOGIES USED
 HTML5, CSS, JavaScript
