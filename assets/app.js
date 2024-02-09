@@ -7,6 +7,7 @@ let solutionArr = [];
 let solutionArrEl = [];
 
 renderSolution();
+console.log(solutionArr)
 
 let ansNum = 0;
 let guessNum = 0;
@@ -143,8 +144,16 @@ function renderSolution() {
 };
 
  function attemptsRemaining(){
-    let attemptsLeft = 10 - guessNum;
-    messageEl.textContent = `${attemptsLeft} Attempts remaining`;
+    if (guessNum < 10){
+        let attemptsLeft = 10 - guessNum;
+        messageEl.textContent = `${attemptsLeft} Attempts remaining`;
+    }
+    if (guessNum === 10){
+        messageEl.textContent = `Better luck next time!`;
+        solutionArr.forEach(function(color, index) {
+            solutionEl[index].style.background = color;
+        });
+    }
 };
 
 function createNestedArray() {
