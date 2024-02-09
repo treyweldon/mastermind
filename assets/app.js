@@ -104,26 +104,26 @@ function checkGuess() {
 };
 
 function checkBlack() {
-    gameBoard[guessNum].forEach(function(ans, index){
-        if (ans.style.background === solutionArr[index]) {
+    gameArr[guessNum].forEach(function(ans, index){
+        if (ans === solutionArr[index]) {
             feedbackArr[guessNum].push("black");
             resultsRemaining[guessNum].push(null);
             delete solutionBoard[guessNum][index];
         }
-        if (ans.style.background !== solutionArr[index]) {
-            resultsRemaining[guessNum].push(ans.style.background);
+        if (ans !== solutionArr[index]) {
+            resultsRemaining[guessNum].push(ans);
         }
     })
 };
 
 function checkWhite(){
-    resultsRemaining[guessNum].forEach(function(ans, index) {
-        if (solutionBoard[guessNum].includes(ans)) {
-            delete solutionBoard[guessNum][index];
+    solutionBoard[guessNum].forEach(function(ans, index) {
+        if (resultsRemaining[guessNum].includes(ans)) {
             feedbackArr[guessNum].push("white");
+            solutionBoard[guessNum][index] = null;
         }
+        else return
     });
-    
 }
 
 function addFeedback() {
