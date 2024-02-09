@@ -176,7 +176,7 @@ button {
   border-radius: 15px;
   font-size: 18px;
   padding: 5px;
-  background: linear-gradient(rgb(100, 130, 255), rgb(200, 200, 200), rgb(100, 130, 255));
+  background: linear-gradient(rgb(80, 85, 95), rgb(200, 200, 200), rgb(80, 85, 95));
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
