@@ -2,7 +2,7 @@ MASTERMIND
 
 by Trey Weldon
 
-The goal of the game is to discover the secret code in 10 attempts or less. A black peg is returned for each guess that is the correct color and also in the correct location. A white peg is returned for each guess that is the correct color, but in the wrong location. The order of the pegs does not necessarily correlate with the secret code. The secret code may or may not have multiples of certain colors, so don't rule that out as a possibility. 
+The goal of the game is to crack the secret code in 10 attempts or less. A black peg is returned for each guess that is a correct color and also in the correct location. A white peg is returned for each guess that is a correct color, but in the wrong location. The order of the pegs does not necessarily correlate with the secret code. The secret code may or may not have multiples of certain colors, so don't rule that out as a possibility. 
 
 SCREENSHOTS
 ![Game at Launch](https://media.git.generalassemb.ly/user/51936/files/72a9b5e1-f464-4644-ba06-b6eb24c6a851)
