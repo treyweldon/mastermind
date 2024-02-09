@@ -2,10 +2,11 @@ MASTERMIND
 by Trey Weldon
 
 SCREENSHOTS
-/Users/treyweldon/Desktop/Screenshot 1.png
-/Users/treyweldon/Desktop/Screenshot 2.png
-/Users/treyweldon/Desktop/Screenshot 3.png
-/Users/treyweldon/Desktop/Screenshot 4.png
+![Game at Launch](https://media.git.generalassemb.ly/user/51936/files/72a9b5e1-f464-4644-ba06-b6eb24c6a851)
+![White pegs: correct color, incorrect location](https://media.git.generalassemb.ly/user/51936/files/a9387f40-2bff-4df6-8b6b-24425b4bf3d8)
+![Black pegs: correct color & correct location](https://media.git.generalassemb.ly/user/51936/files/31c48511-dcbc-49b4-ba2a-85a9c90af59e)
+![Game is won when code is matched](https://media.git.generalassemb.ly/user/51936/files/adeff3e7-f0e6-41dc-af4f-ec6a1250640b)
+
 
 TECHNOLOGIES USED
 HTML5, CSS, JavaScript
