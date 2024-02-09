@@ -7,7 +7,6 @@ let solutionArr = [];
 let solutionArrEl = [];
 
 renderSolution();
-console.log(solutionArr)
 
 let ansNum = 0;
 let guessNum = 0;
