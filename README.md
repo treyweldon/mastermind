@@ -21,6 +21,6 @@ https://pages.git.generalassemb.ly/treyweldon/mastermind/
 
 In order to make your guess, select your answer by clicking on the desired color in the bank. Your selection will be added to the guess row. If you change your mind about your guess, you can cycle through your answer by clicking on the color bank until you are back at the first position. Check if your guess is correct by clicking the "Check Guess" button.
 
-NEXT STEP
+NEXT STEPS
 
-The next feature I would add would be a hint button. This button would reveal one of the code elements at random, but at the cost of one of the player's guesses. This would make it easier to guess the code, since the player would only need to match three colors, but would also offset that gained advantage by giving them fewer chances. The overall result would be a slightly easier gameplay.
+The next feature I would add would be a hint button. This button would reveal one of the code elements at random, but at the cost of two of the player's guesses. This would make it easier to guess the code, since the player would only need to match three colors, but would also offset that gained advantage by giving them fewer chances. The overall result would be a slightly easier gameplay. After that it would be interesting to incorporate animations, either for when pegs are added to the board or as a celebratory experience when the code is matched.
