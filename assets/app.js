@@ -3,12 +3,13 @@ const colorLookup = [
     "green", "orange", "purple"
 ]
 
-let solutionArr = ["red", "blue", "yellow", "green"];
+let solutionArr = [];
+let solutionArrEl = [];
+
+renderSolution();
 
 let ansNum = 0;
 let guessNum = 0;
-
-let results = [null, null, null, null];
 
 const colorRed = document.querySelector('#red');
 const colorBlue = document.querySelector('#blue');
@@ -21,159 +22,135 @@ const checkGuessBtn = document.querySelector('#check');
 const resetBtn = document.querySelector('#reset');
 const messageEl = document.querySelector('h2');
 
-const [...guessCells] = document.querySelectorAll(".guess > div");
-
-const [...guess0] = document.querySelectorAll("#guess-0 > div");
-const [...guess1] = document.querySelectorAll("#guess-1 > div");
-const [...guess2] = document.querySelectorAll("#guess-2 > div");
-const [...guess3] = document.querySelectorAll("#guess-3 > div");
-const [...guess4] = document.querySelectorAll("#guess-4 > div");
-const [...guess5] = document.querySelectorAll("#guess-5 > div");
-const [...guess6] = document.querySelectorAll("#guess-6 > div");
-const [...guess7] = document.querySelectorAll("#guess-7 > div");
-const [...guess8] = document.querySelectorAll("#guess-8 > div");
-const [...guess9] = document.querySelectorAll("#guess-9 > div");
-
-const [...feedback0] = document.querySelectorAll("#feedback-0 > div");
-const [...feedback1] = document.querySelectorAll("#feedback-1 > div");
-const [...feedback2] = document.querySelectorAll("#feedback-2 > div");
-const [...feedback3] = document.querySelectorAll("#feedback-3 > div");
-const [...feedback4] = document.querySelectorAll("#feedback-4 > div");
-const [...feedback5] = document.querySelectorAll("#feedback-5 > div");
-const [...feedback6] = document.querySelectorAll("#feedback-6 > div");
-const [...feedback7] = document.querySelectorAll("#feedback-7 > div");
-const [...feedback8] = document.querySelectorAll("#feedback-8 > div");
-const [...feedback9] = document.querySelectorAll("#feedback-9 > div");
-
 const [...solutionEl] = document.querySelectorAll("#solution > div")
 
-const gameBoard = [
-    guess0, guess1, guess2, guess3, guess4,
-    guess5, guess6, guess7, guess8, guess9
-  ];
-
-let gameArr = [
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null]
-]
+const gameBoard = [];
+    for (let i = 0; i < 10; i++) {
+    gameBoard.push([...document.querySelectorAll(`#guess-${i} > div`)]);
+};
   
-const feedbackBoard = [
-    feedback0, feedback1, feedback2, feedback3, feedback4,
-    feedback5, feedback6, feedback7, feedback8, feedback9
-];
+const feedbackBoard = [];
+    for (let i = 0; i < 10; i++) {
+    feedbackBoard.push([...document.querySelectorAll(`#feedback-${i} > div`)]);
+};
 
-let feedbackArr = [
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null]
-]
+let gameArr = Array.from({ length: 10 }, function() {
+    return [];
+});
+
+let feedbackArr = Array.from({ length: 10 }, function() {
+    return [];
+});
+
+let resultsRemaining = Array.from({ length: 10 }, function() {
+    return [];
+});
+
+let solutionBoard = createNestedArray();
 
 resetBtn.addEventListener("click", resetGame);
 checkGuessBtn.addEventListener("click", checkGuess);
 
-colorRed.addEventListener("click", addColor)
-colorBlue.addEventListener("click", addColor)
-colorYellow.addEventListener("click", addColor)
-colorGreen.addEventListener("click", addColor)
-colorOrange.addEventListener("click", addColor)
-colorPurple.addEventListener("click", addColor)
-
+colorRed.addEventListener("click", addGuess)
+colorBlue.addEventListener("click", addGuess)
+colorYellow.addEventListener("click", addGuess)
+colorGreen.addEventListener("click", addGuess)
+colorOrange.addEventListener("click", addGuess)
+colorPurple.addEventListener("click", addGuess)
 
 function resetGame(){
     location.reload();
 };
 
-function addColor(e) {
+function addGuess(e) {
     if (e.target.className === 'colors') {
       gameBoard[guessNum][ansNum].style.background =
         e.target.id;
-        gameArr[guessNum][ansNum] = e.target.id;
+      gameArr[guessNum][ansNum] = e.target.id;
       ansNum++;
     }
     if (ansNum === 4) {
         ansNum = 0;
         return
-  }
+  } 
 };  
   
-function checkGuess(){
-    if (solutionArr[0] === gameArr[guessNum][0] &&
-        solutionArr[1] === gameArr[guessNum][1] &&
-        solutionArr[2] === gameArr[guessNum][2] &&
-        solutionArr[3] === gameArr[guessNum][3]){
-            solutionEl[0].style.background = solutionArr[0];
-            solutionEl[1].style.background = solutionArr[1];
-            solutionEl[2].style.background = solutionArr[2];
-            solutionEl[3].style.background = solutionArr[3];
-            messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
+function checkGuess() {
+    if (gameArr[guessNum].length !== 4) {
+      messageEl.textContent = "Guess must be four colors";
+      return;
     }
+    let isMatch = true;
+    gameArr[guessNum].forEach(function(ans, index) {
+      if (solutionArr[index] !== ans) {
+        isMatch = false;
+      }
+    });
+    if (isMatch) {
+      gameArr[guessNum].forEach(function(ans, index) {
+        solutionEl[index].style.background = solutionArr[index];
+      });
+      messageEl.textContent = `Congrats! You won in ${guessNum + 1} attempts!`;
+    } 
     else {
-        checkBlack();
-        checkWhite();
-        console.log(feedbackArr[guessNum])
-        addFeedback();
-        guessNum++;
-        ansNum = 0;
-        attemptsRemaining();
+      checkBlack();
+      checkWhite();
+      addFeedback();
+      guessNum++;
+      ansNum = 0;
+      attemptsRemaining();
     }
 };
 
-function checkBlack(){
+function checkBlack() {
     gameBoard[guessNum].forEach(function(ans, index){
         if (ans.style.background === solutionArr[index]) {
-            feedbackArr[guessNum].pop();
-            feedbackArr[guessNum].unshift("black");
+            feedbackArr[guessNum].push("black");
+            delete solutionBoard[guessNum][index]
         }
         if (ans.style.background !== solutionArr[index]) {
-            results = gameBoard[guessNum].map(function(ans, index) {
-                return solutionArr[index];
-              });
-              
+            resultsRemaining[guessNum].push(ans.style.background);
         }
     })
-}
-
-function checkWhite(){
-    gameBoard[guessNum].forEach
 };
 
-function addFeedback(){
-    feedbackBoard[guessNum][0].style.background = feedbackArr[guessNum][0];
-    feedbackBoard[guessNum][1].style.background = feedbackArr[guessNum][1];
-    feedbackBoard[guessNum][2].style.background = feedbackArr[guessNum][2];
-    feedbackBoard[guessNum][3].style.background = feedbackArr[guessNum][3];
+function checkWhite(){
+    resultsRemaining[guessNum].forEach(function(ans, index) {
+        if (solutionBoard[guessNum].includes(ans)) {
+            feedbackArr[guessNum].push("white");
+        }
+    });
+    
+}
+
+function addFeedback() {
+    feedbackArr[guessNum].forEach(function(feedbackColor, index) {
+        feedbackBoard[guessNum][index].style.background = feedbackColor;
+    });
 };
 
 function renderSolution() {
     let randArr = Array.from({length: 4}, function() {
         return Math.floor(Math.random() * 6);
       });
-      randSolution = [
-        colorLookup[randArr[0]],
-        colorLookup[randArr[1]],
-        colorLookup[randArr[2]],
-        colorLookup[randArr[3]]
-      ];
+      let randSolution = [];
+      randArr.forEach(function(index) {
+          randSolution.push(colorLookup[index]);
+      });
         solutionArr = randSolution;
-    return solutionArr;
- }
+        solutionArrEl = solutionArr
+    return solutionArr, solutionArrEl;
+};
 
  function attemptsRemaining(){
     let attemptsLeft = 10 - guessNum;
     messageEl.textContent = `${attemptsLeft} Attempts remaining`;
- }
+};
+
+function createNestedArray() {
+    let nestedArray = []; 
+    for (let i = 0; i < 10; i++) {
+        nestedArray.push(solutionArrEl.slice());
+    }
+    return nestedArray;
+}
