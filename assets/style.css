@@ -117,6 +117,7 @@ p {
   align-items: center;
   height: 5vh;
   width: 23vw;
+  min-width: 115px;
   margin: 5px;
   background: linear-gradient(rgb(70, 130, 185), rgb(125, 155, 180), rgb(70, 130, 185));
   grid-column: 2;
