@@ -5,29 +5,11 @@ by Trey Weldon
 The goal of the game is to crack the secret code in 10 attempts or less. A black peg is returned for each guess that is a correct color and also in the correct location. A white peg is returned for each guess that is a correct color, but in the wrong location. The order of the pegs does not necessarily correlate with the secret code. The secret code may or may not have multiples of certain colors, so don't rule that out as a possibility. 
 
 SCREENSHOTS
-<<<<<<< HEAD
-/Users/treyweldon/Desktop/Screenshot 1.png
-/Users/treyweldon/Desktop/Screenshot 2.png
-/Users/treyweldon/Desktop/Screenshot 3.png
+![Game at Launch](https://media.git.generalassemb.ly/user/51936/files/70789af1-f0bb-4d32-b339-047867658f84)
+![White pegs: correct color, incorrect location](https://media.git.generalassemb.ly/user/51936/files/64358a73-0e43-4745-9f95-92295f7018e8)
+![Black pegs: correct color, correct location](https://media.git.generalassemb.ly/user/51936/files/6fb59754-0859-48bf-884a-79c61d3d0e52)
+![Code broken, Game won](https://media.git.generalassemb.ly/user/51936/files/7abe4f33-88c8-4fc7-850f-26f6d375cac6)
 
-
-
-
-
-![Game at Launch](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%201.png)
-
-![Correct color, incorrect location: white pegs returned](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%202.png)
-
-![Correct color, correct location: black pegs returned](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%203.png)
-
-![When code is matched](https://git.generalassemb.ly/treyweldon/mastermind/blob/main/assets/Screenshot%204.png)
-=======
-![Game at Launch](https://media.git.generalassemb.ly/user/51936/files/72a9b5e1-f464-4644-ba06-b6eb24c6a851)
-![White pegs: correct color, incorrect location](https://media.git.generalassemb.ly/user/51936/files/a9387f40-2bff-4df6-8b6b-24425b4bf3d8)
-![Black pegs: correct color & correct location](https://media.git.generalassemb.ly/user/51936/files/31c48511-dcbc-49b4-ba2a-85a9c90af59e)
-![Game is won when code is matched](https://media.git.generalassemb.ly/user/51936/files/adeff3e7-f0e6-41dc-af4f-ec6a1250640b)
-
->>>>>>> eba16e94f92ca8566aef5a17590367e988ef34ba
 
 TECHNOLOGIES USED
 
