@@ -149,6 +149,8 @@ p {
   border-radius: 15%;
   width: 15vw;
   height: 15vh;
+  min-width: 75px;
+  min-height: 75px;
 }
 
 #red {
