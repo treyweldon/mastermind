@@ -107,7 +107,7 @@ function checkBlack() {
         if (ans === solutionArr[index]) {
             feedbackArr[guessNum].push("black");
             resultsRemaining[guessNum].push(null);
-            delete solutionBoard[guessNum][index];
+            solutionBoard[guessNum][index] = null;
         }
         if (ans !== solutionArr[index]) {
             resultsRemaining[guessNum].push(ans);
@@ -115,13 +115,18 @@ function checkBlack() {
     })
 };
 
-function checkWhite(){
-    solutionBoard[guessNum].forEach(function(ans, index) {
-        if (resultsRemaining[guessNum].includes(ans)) {
-            feedbackArr[guessNum].push("white");
-            solutionBoard[guessNum][index] = null;
+function checkWhite() {
+    resultsRemaining[guessNum].forEach(function(ans, index) {
+        if (ans === null) {
+            return;
         }
-        else return
+        const colorIndex = solutionBoard[guessNum].findIndex(function(color) {
+            return color === ans;
+        });
+        if (colorIndex !== -1) {
+            feedbackArr[guessNum].push("white");
+            solutionBoard[guessNum][colorIndex] = null;
+        }
     });
 }
 
