@@ -26,8 +26,8 @@ h2 {
   grid-column: 2;
   grid-column: span 2;
   color: lightgray;
+  text-shadow: rgb(220, 220, 220) 0 0 15px;
   -webkit-text-stroke: 1.5px black;
-  text-shadow: rgb(220, 220, 220) 0 0 3px;
   font-size: 32px;
 }
 
@@ -35,10 +35,10 @@ p {
   grid-column: 2 / 4;
   margin-top: 25px;
   text-align: justify;
-  font-size: 22px;
-  color: darkgray
-  -webkit-text-stroke; 1px white;
+  font-size: 18px;
+  color: darkgray;
   text-shadow: rgb(220, 220, 220) 0 0 5px;
+  -webkit-text-stroke: 1px black;
 }
 
 #board-wrapper {
