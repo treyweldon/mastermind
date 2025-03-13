@@ -5,10 +5,10 @@ by Trey Weldon
 The goal of the game is to crack the secret code in 10 attempts or less. A black peg is returned for each guess that is a correct color and also in the correct location. A white peg is returned for each guess that is a correct color, but in the wrong location. The order of the pegs does not necessarily correlate with the secret code. The secret code may or may not have multiples of certain colors, so don't rule that out as a possibility. 
 
 SCREENSHOTS
-![Game at Launch](https://media.git.generalassemb.ly/user/51936/files/70789af1-f0bb-4d32-b339-047867658f84)
-![White pegs: correct color, incorrect location](https://media.git.generalassemb.ly/user/51936/files/64358a73-0e43-4745-9f95-92295f7018e8)
-![Black pegs: correct color, correct location](https://media.git.generalassemb.ly/user/51936/files/6fb59754-0859-48bf-884a-79c61d3d0e52)
-![Code broken, Game won](https://media.git.generalassemb.ly/user/51936/files/7abe4f33-88c8-4fc7-850f-26f6d375cac6)
+![Game at Launch](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%201.png)
+![White pegs: correct color, incorrect location](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%202.png)
+![Black pegs: correct color, correct location](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%203.png)
+![Code broken, Game won](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%203.png)
 
 
 TECHNOLOGIES USED
