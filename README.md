@@ -54,6 +54,6 @@ To make your guess:
 
 The next feature I would add is a **hint button**:  
 
-- This button would reveal one of the code elements at random **but** at the cost of two of the player's guesses.  
+- This button would reveal one of the code elements at random **but** at the cost of one or two of the player's guesses.  
 - This would make it easier to guess the code while still maintaining a challenge.  
 - Another improvement would be **animations**—either for pegs being added or a celebratory effect when the code is cracked.  
