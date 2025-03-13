@@ -17,7 +17,7 @@ JavaScript, HTML, and CSS
 
 GETTING STARTED 
 
-https://pages.git.generalassemb.ly/treyweldon/mastermind/
+ https://treyweldon.github.io/mastermind/
 
 In order to make your guess, select your answer by clicking on the desired color in the bank. Your selection will be added to the guess row. If you change your mind about your guess, you can cycle through your answer by clicking on the color bank until you are back at the first position. Check if your guess is correct by clicking the "Check Guess" button.
 
