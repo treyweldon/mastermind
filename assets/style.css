@@ -6,10 +6,9 @@
 body {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 80px 3fr 1fr;
+  grid-template-rows: 80px auto 1fr;
   align-items: center;
   height: 100vh;
-  /* overflow: hidden; */
   position: relative;
 }
 

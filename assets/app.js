@@ -39,7 +39,36 @@ class MastermindGame {
     }
 
     resetGame() {
-        location.reload();
+        this.solutionArr = [];
+        this.solutionArrEl = [];
+        this.renderSolution();
+
+        this.ansNum = 0;
+        this.guessNum = 0;
+        this.previousGuesses.clear();
+
+        this.gameArr = Array.from({ length: 10 }, () => []);
+        this.feedbackArr = Array.from({ length: 10 }, () => []);
+        this.resultsRemaining = Array.from({ length: 10 }, () => []);
+        this.solutionBoard = this.createNestedArray();
+
+        this.messageEl.textContent = "New game started!";
+
+        this.gameBoard.forEach(row => {
+            row.forEach(cell => {
+                cell.style.background = '';
+            });
+        });
+
+        this.feedbackBoard.forEach(row => {
+            row.forEach(cell => {
+                cell.style.background = '';
+            });
+        });
+
+        this.solutionEl.forEach(cell => {
+            cell.style.background = '';
+        });
     }
 
     addGuess(e) {
@@ -59,14 +88,14 @@ class MastermindGame {
             this.messageEl.textContent = "Guess must be four colors";
             return;
         }
-        
+
         const guessString = this.gameArr[this.guessNum].join(',');
         if (this.previousGuesses.has(guessString)) {
             this.messageEl.textContent = "You've already guessed this combination. Try again!";
             return;
         }
         this.previousGuesses.add(guessString);
-        
+
         let isMatch = this.gameArr[this.guessNum].every((ans, index) => this.solutionArr[index] === ans);
 
         if (isMatch) {
