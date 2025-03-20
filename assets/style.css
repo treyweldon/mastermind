@@ -222,6 +222,6 @@ button:hover {
   grid-column: span 2 / 4;
 }
 
-/* #reset {
-  grid-column-start: 3;
-} */
+#reset, #reset-guess {
+  color: #fff
+}

@@ -116,15 +116,10 @@ class MastermindGame {
     }
 
     resetGuess() {
-        // Clear the guess array for the current row
         this.gameArr[this.guessNum] = [];
-    
-        // Reset the displayed colors for the current row
         this.gameBoard[this.guessNum].forEach(cell => {
             cell.style.background = '';
         });
-    
-        // Reset answer index to allow a new guess
         this.ansNum = 0;
     }
     
