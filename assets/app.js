@@ -19,6 +19,7 @@ class MastermindGame {
         };
 
         this.checkGuessBtn = document.querySelector('#check');
+        this.resetGuessBtn = document.querySelector('#reset-guess');
         this.resetBtn = document.querySelector('#reset');
         this.messageEl = document.querySelector('h2');
 
@@ -31,6 +32,7 @@ class MastermindGame {
         this.solutionBoard = this.createNestedArray();
 
         this.resetBtn.addEventListener("click", () => this.resetGame());
+        this.resetGuessBtn.addEventListener("click", () => this.resetGuess());
         this.checkGuessBtn.addEventListener("click", () => this.checkGuess());
 
         Object.values(this.colorButtons).forEach(button => {
@@ -112,6 +114,20 @@ class MastermindGame {
             this.attemptsRemaining();
         }
     }
+
+    resetGuess() {
+        // Clear the guess array for the current row
+        this.gameArr[this.guessNum] = [];
+    
+        // Reset the displayed colors for the current row
+        this.gameBoard[this.guessNum].forEach(cell => {
+            cell.style.background = '';
+        });
+    
+        // Reset answer index to allow a new guess
+        this.ansNum = 0;
+    }
+    
 
     checkBlack() {
         this.gameArr[this.guessNum].forEach((ans, index) => {
