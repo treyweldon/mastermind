@@ -121,6 +121,7 @@ class MastermindGame {
     }
 
     resetGuess() {
+        if (this.gameOver) return;
         this.gameArr[this.guessNum] = [];
         this.gameBoard[this.guessNum].forEach(cell => {
             cell.style.background = '';
