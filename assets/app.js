@@ -8,6 +8,7 @@ class MastermindGame {
         this.ansNum = 0;
         this.guessNum = 0;
         this.previousGuesses = new Set();
+        this.gameOver = false;
 
         this.colorButtons = {
             red: document.querySelector('#red'),
@@ -48,6 +49,7 @@ class MastermindGame {
         this.ansNum = 0;
         this.guessNum = 0;
         this.previousGuesses.clear();
+        this.gameOver = false;
 
         this.gameArr = Array.from({ length: 10 }, () => []);
         this.feedbackArr = Array.from({ length: 10 }, () => []);
@@ -74,6 +76,7 @@ class MastermindGame {
     }
 
     addGuess(e) {
+        if (this.gameOver) return;
         if (e.target.className === 'colors') {
             this.gameBoard[this.guessNum][this.ansNum].style.background = e.target.id;
             this.gameArr[this.guessNum][this.ansNum] = e.target.id;
@@ -86,6 +89,7 @@ class MastermindGame {
     }
 
     checkGuess() {
+        if (this.gameOver) return;
         if (this.gameArr[this.guessNum].length !== 4) {
             this.messageEl.textContent = "Guess must be four colors";
             return;
@@ -105,6 +109,7 @@ class MastermindGame {
                 this.solutionEl[index].style.background = this.solutionArr[index];
             });
             this.messageEl.textContent = `Congrats! You won in ${this.guessNum + 1} attempts!`;
+            this.gameOver = true;
         } else {
             this.checkBlack();
             this.checkWhite();
