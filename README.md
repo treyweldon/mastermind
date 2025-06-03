@@ -26,7 +26,7 @@ The goal of the game is to crack the secret code in 10 attempts or less.
 To make your guess:  
 
 1. Select your answer by clicking on a color in the bank. Your selection will be added to the guess row.  
-2. If you change your mind, cycle through your answer by clicking on the color bank until you're back at the first position or select reset guess to clear the entire guess row.
+2. If you change your mind, select reset guess to clear the entire guess row.
 4. Click **"Check Guess"** to see if your guess is correct.  
 
 ---
