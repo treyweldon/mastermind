@@ -36,8 +36,10 @@ class MastermindGame {
         this.resetGuessBtn.addEventListener("click", () => this.resetGuess());
         this.checkGuessBtn.addEventListener("click", () => this.checkGuess());
 
-        Object.values(this.colorButtons).forEach(button => {
+        Object.entries(this.colorButtons).forEach(([color, button]) => {
             button.addEventListener("click", (e) => this.addGuess(e));
+            button.addEventListener("mouseenter", () => this.previewColor(color));
+            button.addEventListener("mouseleave", () => this.clearPreview());
         });
     }
 
@@ -76,16 +78,44 @@ class MastermindGame {
     }
 
     addGuess(e) {
-        if (this.gameOver) return;
+        if (this.gameOver || this.ansNum >= 4) return;
+
         if (e.target.className === 'colors') {
-            this.gameBoard[this.guessNum][this.ansNum].style.background = e.target.id;
-            this.gameArr[this.guessNum][this.ansNum] = e.target.id;
+            const color = e.target.id;
+            this.gameBoard[this.guessNum][this.ansNum].style.background = color;
+            this.gameArr[this.guessNum][this.ansNum] = color;
             this.ansNum++;
         }
-        if (this.ansNum === 4) {
-            this.ansNum = 0;
-            return;
+    }
+
+    previewColor(color) {
+        if (this.gameOver || this.ansNum >= 4) return;
+
+        const cell = this.gameBoard[this.guessNum][this.ansNum];
+
+        if (!this.gameArr[this.guessNum][this.ansNum]) {
+            cell.style.background = this.hexToRGBA(color, 0.5); 
         }
+    }
+
+    clearPreview() {
+        if (this.gameOver || this.ansNum >= 4) return;
+
+        const cell = this.gameBoard[this.guessNum][this.ansNum];
+
+        if (!this.gameArr[this.guessNum][this.ansNum]) {
+            cell.style.background = '';
+        }
+    }
+
+    hexToRGBA(colorName, alpha) {
+        const tempDiv = document.createElement('div');
+        tempDiv.style.color = colorName;
+        document.body.appendChild(tempDiv);
+        const rgb = getComputedStyle(tempDiv).color;
+        document.body.removeChild(tempDiv);
+
+        return rgb.replace("rgb", "rgba").replace(")", `, ${alpha})`);
     }
 
     checkGuess() {
@@ -128,7 +158,6 @@ class MastermindGame {
         });
         this.ansNum = 0;
     }
-    
 
     checkBlack() {
         this.gameArr[this.guessNum].forEach((ans, index) => {
