@@ -11,25 +11,6 @@ The goal of the game is to crack the secret code in 10 attempts or less.
 
 ---
 
-## SCREENSHOTS  
-
-### Game at Launch  
-![Game at Launch](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%201.png)  
-
-### White pegs indicate the correct color in the incorrect location  
-![White pegs: correct color, incorrect location](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%202.png)  
-
-### Black pegs indicate the correct color in the correct location  
-![Black pegs: correct color, correct location](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%203.png)  
-
-### The code has been guessed! You win!  
-![Code broken, Game won](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%204.png)  
-
-### Duplicate guesses prevented  
-![Duplicate](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%205.png)  
-
----
-
 ## TECHNOLOGIES USED  
 
 - JavaScript  
@@ -49,6 +30,26 @@ To make your guess:
 3. Click **"Check Guess"** to see if your guess is correct.  
 
 ---
+
+## SCREENSHOTS  
+
+### Game at Launch  
+![Game at Launch](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%201.png)  
+
+### White pegs indicate the correct color in the incorrect location  
+![White pegs: correct color, incorrect location](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%202.png)  
+
+### Black pegs indicate the correct color in the correct location  
+![Black pegs: correct color, correct location](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%203.png)  
+
+### The code has been guessed! You win!  
+![Code broken, Game won](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%204.png)  
+
+### Duplicate guesses prevented  
+![Duplicate](https://github.com/treyweldon/mastermind/blob/main/assets/Screenshot%205.png)  
+
+---
+
 
 ## NEXT STEPS  
 
